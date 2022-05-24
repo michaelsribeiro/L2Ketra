@@ -1,0 +1,83 @@
+@import "../core/reset";
+@import "../abstract/breakpoint";
+@import "../abstract/variables";
+@import "../abstract/mixins";
+
+footer {
+  width: 100%;
+  height: 450px;
+
+  .container {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .links {
+      display: flex;
+      flex: 1;
+      flex-direction: row;
+      font-size: 14px;
+      margin-top: 85px;
+
+      .account,
+      .server,
+      .info {
+          width: 160px;
+      }
+
+      ul {
+          list-style: none;
+          padding: 0;
+
+          h2 {
+              margin-bottom: 10px;
+              font-family: TPB, Arial;
+          }
+
+          li {
+              padding: 3px 0;
+
+              a {
+                  color: #feb65a;
+
+                  &:hover {
+                      color: #f3d6b0;
+                  }
+              }
+          }
+      }
+  }
+
+  .rights {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: end;
+      flex: 1;
+      margin-top: 65px;
+
+      .logo {
+          width: 143px;
+          height: 50px;
+          margin-bottom: 20px;
+          background: transparent url(../images/css-stripes.png) no-repeat;
+          background-position: -302px -127px;
+      }
+
+      .copy {
+          color: $text-white;
+          font-family: TPB, Arial;
+          font-size: 15px;
+      }
+
+      p {
+          text-align: end;
+          font-size: 11px;
+          line-height: 1;
+          color: rgba(255, 255, 255, 0.5);
+      }
+  }
+}

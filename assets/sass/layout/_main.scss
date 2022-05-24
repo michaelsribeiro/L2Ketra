@@ -1,0 +1,68 @@
+@import "../core/reset";
+@import "../abstract/breakpoint";
+@import "../abstract/variables";
+@import "../abstract/mixins";
+@import "../autoload/fonts";
+
+main {
+    width: $container-width;
+    height: 780px;
+    margin: 0 auto;
+    position: relative;
+
+    .serverStatus {
+        width: 318px;
+        height: 50px;
+        position: absolute;
+        background: transparent url(../images/css-stripes.png);
+        background-position: 0 -587px;
+        box-sizing: border-box;
+        top: 529px;
+        right: 150px;
+        z-index: 10;
+
+        span {
+            width: 33px;
+            height: 36px;
+            position: absolute;
+            top: 7px;
+            left: 23px;
+            background: transparent url(../images/css-stripes.png);
+            background-position: 0 -549px;
+        }
+
+        p {
+            position: absolute;
+            top: 15px;
+            left: 56px;
+            font-family: TPB, Arial;
+            font-size: 15px;
+            color: #00ff00;
+            text-shadow: 0 0 20px #00ff00; 
+        }
+
+        .players_on {
+            width: 77px;
+            height: 26px;
+            position: absolute;
+            top: 11px;
+            right: 40px;
+            line-height: 26px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+            padding-left: 15px;
+            background: transparent url(../images/css-stripes.png);
+            background-position: -35px -549px;
+        }
+    }
+
+    nav {
+        width: 1270px;
+        height: 243px;
+        position: absolute;
+        top: 529px;
+        left: -9px;
+        background: transparent url(../images/menu.jpg) no-repeat;
+    }
+}
