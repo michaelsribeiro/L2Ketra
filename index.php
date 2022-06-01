@@ -14,6 +14,27 @@
 <body>
     <main>
         <div class="container">
+            <div class="user">
+                <div class="loginarea">
+                    <form action="" method="POST">
+                        <div class="formarea">
+                            <label>
+                                <input type="text" name="login" id="login" class="input" title="Username" autocomplete="off" placeholder="Login">
+                                <div class="user-icon user"></div>
+                            </label>
+                            <label>
+                                <input type="password" name="pass" id="pass" class="input" title="Password" autocomplete="off" placeholder="Password">
+                                <div class="user-icon pass"></div>
+                            </label>                            
+                        </div>                       
+                        <div class="box-btn">
+                            <input class="submit-btn" type="submit" value=" " name="login">
+                        </div>
+                    </form>
+                </div>
+                <div class="forgot"><a href="#">Esqueceu sua senha?</a></div>
+                <img class="avatar" src="assets/images/dark-elf-male.jpg"></img>
+            </div>
             <div class="serverStatus">
                 <span></span>
                 <p>Server Online</p>
@@ -127,25 +148,49 @@
                 </div>
                 <div class="news">
                     <div class="new">
-                        <a href="#">
-                            <img src="assets/images/1.jpg">
-                        </a>
+                        <a class="new-image" href="#"><img src="assets/images/1.jpg"></a>
+                        <div class="new-content">
+                            <a href="#"><h3 class="new-title">Batalhas Épicas</h3></a>
+                            <p class="new-text">No L2 Ketra, tudo gira em torno de PvP e PVE. 
+                                Você vai lutar por pontos, para os patrões, para epopéias, de castelos, de itens, 
+                                por Adena, de glória, de honra, de seu clã, para si mesmo... você entendeu.
+                            </p>
+                        </div>
+                        <a class="readmore" href="#"></a>                        
                     </div>
                     <div class="new">
-                        <a href="#">
-                            <img src="assets/images/2.jpg">
-                        </a>
+                        <a class="new-image" href="#"><img src="assets/images/1.jpg"></a>
+                        <div class="new-content">
+                            <a href="#"><h3 class="new-title">Batalhas Épicas</h3></a>
+                            <p class="new-text">No L2 Ketra, tudo gira em torno de PvP e PVE. 
+                                Você vai lutar por pontos, para os patrões, para epopéias, de castelos, de itens, 
+                                por Adena, de glória, de honra, de seu clã, para si mesmo... você entendeu.
+                            </p>
+                        </div>
+                        <a class="readmore" href="#"></a>                        
                     </div>
                     <div class="new">
-                        <a href="#">
-                            <img src="assets/images/3.jpg">
-                        </a>
+                        <a class="new-image" href="#"><img src="assets/images/1.jpg"></a>
+                        <div class="new-content">
+                            <a href="#"><h3 class="new-title">Batalhas Épicas</h3></a>
+                            <p class="new-text">No L2 Ketra, tudo gira em torno de PvP e PVE. 
+                                Você vai lutar por pontos, para os patrões, para epopéias, de castelos, de itens, 
+                                por Adena, de glória, de honra, de seu clã, para si mesmo... você entendeu.
+                            </p>
+                        </div>
+                        <a class="readmore" href="#"></a>                        
                     </div>
                     <div class="new">
-                        <a href="#">
-                            <img src="assets/images/1.jpg">
-                        </a>
-                    </div>
+                        <a class="new-image" href="#"><img src="assets/images/1.jpg"></a>
+                        <div class="new-content">
+                            <a href="#"><h3 class="new-title">Batalhas Épicas</h3></a>
+                            <p class="new-text">No L2 Ketra, tudo gira em torno de PvP e PVE. 
+                                Você vai lutar por pontos, para os patrões, para epopéias, de castelos, de itens, 
+                                por Adena, de glória, de honra, de seu clã, para si mesmo... você entendeu.
+                            </p>
+                        </div>
+                        <a class="readmore" href="#"></a>                        
+                    </div>                    
                 </div>
             </article>
             <aside>

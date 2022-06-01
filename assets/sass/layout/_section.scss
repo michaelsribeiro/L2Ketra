@@ -142,6 +142,11 @@ section {
 
             img {
                 border-radius: 10px;
+                transition: all .3s ease;
+
+                &:hover {
+                    filter: brightness(1.30);
+                }
             }
 
             hr {
@@ -188,8 +193,48 @@ section {
                 .new {
                     width: 376px;
                     height: 370px;
-                    padding: 25px;
+                    padding: 30px;
+                    position: relative;
                     background: transparent url(../images/news-bg.png);
+
+                    .new-image {
+                        img {
+                            width: 100%;
+                        }
+                    }
+
+                    .new-content {
+                        padding: 10px 20px;
+                        text-align: center;
+
+                        .new-title {
+                            margin: 6px 0;
+                            font-size: 16px;
+                            font-family: TPB, Arial;
+                            color: #b92407;
+                            text-transform: capitalize;
+                        }
+
+                        .new-text {
+                            text-align: center;
+                            line-height: 1.3em;
+                            font-family: Arial, sans-serif;
+                        }
+                    }
+
+                    .readmore {
+                        position: absolute;
+                        right: 30px;
+                        bottom: 30px;
+                        width: 98px;
+                        height: 43px;
+                        background: transparent url(../images/news-more.png) no-repeat;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-position: 0 -43px;
+                        }
+                    }
                 }
             }
         }
