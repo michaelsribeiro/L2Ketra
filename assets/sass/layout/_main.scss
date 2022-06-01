@@ -186,5 +186,71 @@ main {
         top: 529px;
         left: -9px;
         background: transparent url(../images/menu.jpg) no-repeat;
+
+        ul {
+            position: relative;
+            top: 113px;
+            left: 170px;
+            display: flex;
+            flex-direction: row;
+
+            a {
+                text-decoration: none;
+    
+                &:visited {
+                    color: none;
+                }
+    
+                li {
+                    height: 60px;
+                    transition: all .2s ease;
+                    list-style: none;
+        
+                    &:hover {                
+                        filter: brightness(1.4);
+                    }
+        
+                    
+                    &.op-1 {
+                        width: 108px;
+                        background: transparent url(../images/menu_options.jpg) no-repeat;
+                        background-position: 0 0px;
+                    }
+
+                    &.op-2 {
+                        width: 121px;
+                        background: transparent url(../images/menu_options.jpg) no-repeat;
+                        background-position: -108px 0px;
+                    }
+
+                    &.op-3 {
+                        width: 177px;
+                        background: transparent url(../images/menu_options.jpg) no-repeat;
+                        background-position: -229px 0px;
+                    }
+
+                    &.op-4 {
+                        width: 156px;
+                        background: transparent url(../images/menu_options.jpg) no-repeat;
+                        background-position: -406px 0px;
+                    }
+
+                    &.op-5 {
+                        width: 158px;
+                        background: transparent url(../images/menu_options.jpg) no-repeat;
+                        background-position: -561px 0px;
+                    }
+
+                    &.op-6 {
+                        width: 133px;
+                        background: transparent url(../images/menu_options.jpg) no-repeat;
+                        background-position: -720px 0px;
+                    }
+                }
+            }
+        }
+
+        
+
     }
 }

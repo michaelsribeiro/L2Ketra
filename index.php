@@ -32,7 +32,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="forgot"><a href="#">Esqueceu sua senha?</a></div>
+                <div class="forgot"><a href="#">Forgot your password?</a></div>
                 <img class="avatar" src="assets/images/dark-elf-male.jpg"></img>
             </div>
             <div class="serverStatus">
@@ -40,7 +40,16 @@
                 <p>Server Online</p>
                 <div class="players_on">739</div>
             </div>
-            <nav></nav>
+            <nav>
+                <ul>
+                    <a href="#"><li class="op-1"></li></a>
+                    <a href="#"><li class="op-2"></li></a>
+                    <a href="#"><li class="op-3"></li></a>
+                    <a href="#"><li class="op-4"></li></a>
+                    <a href="#"><li class="op-5"></li></a>
+                    <a href="#"><li class="op-6"></li></a>
+                </ul>
+            </nav>
         </div>
     </main>
     <section class="statsbox">
