@@ -15,7 +15,11 @@
     <?php include "pages/header.php" ?>
     <section>
         <div class="container page">
-            <?php include "pages/news.php" ?>
+            <?php 
+                if(isset($_GET['pages'])) {
+                    require_once "pages/".$_GET['pages'].".php"; 
+                }            
+            ?>
         </div>
     </section>
     <?php include "pages/footer.php"?>
