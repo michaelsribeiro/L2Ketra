@@ -24,6 +24,7 @@
         </div>
     </section>
     <?php include "pages/footer.php"?>
+<script type="text/javascript" src="assets/js/app.js"></script>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v13.0" nonce="0SrYOoyX"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <article>
-    <a href=""><img src="assets/images/main-banner.jpg" alt="Register Now"></a>
+    <a href="?pages=register"><img src="assets/images/main-banner.jpg" alt="Register Now"></a>
     <hr>
     <div class="title">
         <h1>News</h1>

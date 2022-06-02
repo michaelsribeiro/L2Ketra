@@ -1,23 +1,20 @@
 @import "../abstract/variables";
 
 .btn-default {
-    padding: 10px 30px;
+    padding: 15px 35px 12px 35px;
     border: none;
-    border-radius: 20px;
+    border-radius: 3px;
     color: $text-white;
     text-transform: uppercase;
-    font-size: 11px;
-    font-weight: bold;    
+    font-size: 16px;
+    font-weight: bold;
+    font-family: TPB, Arial;    
     outline: none;
-    background-color: $text-color-secondary;
-    transition: all .3s ease;
-
-    @include breakpoint(large-up) {
-        font-size: 10px;
-    }
+    background-color: #b92407;
+    transition: all .2s ease;
 
     &:hover {
-        background-color: darken($text-color-secondary, 10%);
+        filter: brightness(1.2);
     }
 }
 
