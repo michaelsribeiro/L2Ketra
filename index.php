@@ -16,9 +16,10 @@
     <section>
         <div class="container page">
             <?php 
-                if(isset($_GET['pages'])) {
-                    require_once "pages/".$_GET['pages'].".php"; 
-                }            
+                $rota = $_GET['pages'] ?? 'home';
+
+                file_exists("pages/{$rota}.php") ? require_once "pages/{$rota}.php" : require_once "pages/404.php";
+               
             ?>
         </div>
     </section>

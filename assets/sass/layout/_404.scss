@@ -1,0 +1,19 @@
+@import "../core/reset";
+@import "../abstract/breakpoint";
+@import "../abstract/variables";
+@import "../abstract/mixins";
+
+.title {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+        margin-bottom: 20px !important;
+        font-family: TPB, Arial;
+        font-size: 34px;
+        color: #353535;
+    }
+}

@@ -55,7 +55,7 @@
 <aside>
     <div class="box">
         <div class="text"><h3>Donations</h3></div>
-        <a href="#"><img src="assets/images/donateb_EN.jpg" alt="Make a Donation"></a>
+        <a href="?pages=donation"><img src="assets/images/donateb_EN.jpg" alt="Make a Donation"></a>
     </div>
     <div class="box">
         <div class="text"><h3>Gallery</h3></div>
