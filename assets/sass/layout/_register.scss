@@ -116,10 +116,11 @@
                         font-family: TPB, Arial;
                         font-size: 12px;
                         text-transform: uppercase;
-                        text-align: right;
                         font-weight: bold;
-                        line-height: 46px;
                         color: #fff;
+                        display: flex;
+                        align-items: center;
+                        justify-content: end;
                     }
     
                     .camp {
