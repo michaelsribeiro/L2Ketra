@@ -1,4 +1,4 @@
-<div class="account">
+<div class="register">
     <h1>Register Account</h1>
     <div class="menu-nav">
         <a href="?pages=register" class="active">Register</a>
