@@ -12,10 +12,13 @@
 
 </head>
 <body>
-    <?php include "pages/header.php" ?>
+    <?php
+        session_start(); 
+        include "pages/header.php" ?>
     <section>
         <div class="container page">
-            <?php 
+            <?php             
+
                 $rota = $_GET['pages'] ?? 'home';
 
                 file_exists("pages/{$rota}.php") ? require_once "pages/{$rota}.php" : require_once "pages/404.php";

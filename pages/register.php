@@ -22,12 +22,21 @@
             </div>
         </div>
     </div>
-    <form action="./?engine=create_account" method="POST" class="registerForm">
+    <form action="engine/create_account.php" method="POST" class="registerForm">
         <label class="msg warn">
-            <input type="checkbox" id="acceptRules" value="1">
+            <input type="checkbox" id="acceptRules" value="1" name="checkbox">
             <strong>I accept all the rules</strong>
         </label>
         <div class="dual-column">
+            <?php
+                if($_SESSION['error']){
+                    echo '<span class="msg danger">'.$_SESSION['error'].'</span>';
+                    $_SESSION['error'] = '';
+                } else if($_SESSION['success']){
+                    echo '<span class="msg success">'.$_SESSION['success'].'</span>';
+                    $_SESSION['success'] = '';
+                }
+            ?>
             <label class="formpadrao">
                 <div class="input-area">
                     <div class="desc">* Login:</div>
@@ -64,12 +73,12 @@
                 <div class="input-area">
                     <div class="desc">* Repeat Email:</div>
                     <div class="camp">
-                        <input type="email2" name="email" id="email" maxlenght="100" autocomplete="off">
+                        <input type="email" name="email2" id="email" maxlenght="100" autocomplete="off">
                     </div>
                 </div>
             </label>
         </div>
-        <input type="submit" class="btn-default" value="Register">
+        <input type="submit" class="btn-default" value="Register" name="create">
     </form>  
 </div>
 
