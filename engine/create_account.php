@@ -11,6 +11,8 @@
             return $data;
         }
 
+        var_dump($_POST);
+
         $login = validate($_POST['login']);
         $password = validate($_POST['pass']);
         $confirmPass = validate($_POST['pass2']);
@@ -22,12 +24,45 @@
         $_SESSION['password'] = $password;
         $_SESSION['email'] = $email;
 
-        if(empty($_SESSION['login']) || $_SESSION['email'] || $_SESSION['pass']) {
-
-            $_SESSION['error'] = 'Preencha todos os campos';
-            header("Location ./?pages=register");
+        if(empty($acceptRules)) {
+            $_SESSION['error'] = 'Para se cadastrar é preciso concordar com as regras!';
+            header("Location: ../?pages=register");
             exit;
+        }
 
+        if(!empty($_SESSION['login']) && !empty($_SESSION['password']) && !empty($_SESSION['email'])) {
+
+            if($password == $confirmPass) {
+                
+                if($email == $confirmEmail){
+                    $sql = "INSERT INTO accounts(login, password, email) VALUES('$login', '$password', '$email')";
+                    $result = mysqli_query($conn, $sql);
+                    print_r($result);
+    
+                    if($result) {
+                        $_SESSION['success'] = 'Cadastro realizado com sucesso!';
+                        header("Location: ../?pages=register");
+                        exit;
+                    } else {
+                        $_SESSION['error'] = 'Unknown error occurred!';
+                        header("Location: ../?pages=register");
+                        exit;
+                    }
+                } else {
+                    $_SESSION['error'] = 'Emails não coincidem';
+                    header("Location: ../?pages=register");
+                    exit;
+                }
+            } else {
+                $_SESSION['error'] = 'Senhas não conicidem';
+                header("Location: ../?pages=register");
+                exit;               
+            }
+
+        } else {
+            $_SESSION['error'] = 'Preencha todos os campos!';
+            header("Location: ../?pages=register");
+            exit;    
         }
 
         
