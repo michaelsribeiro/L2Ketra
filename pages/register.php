@@ -49,7 +49,7 @@
                 <div class="input-area">
                     <div class="desc">* Password:</div>
                     <div class="camp">
-                        <input type="password" name="pass" id="pass" maxlenght="25" autocomplete="off">
+                        <input type="password" name="pass" id="pass" minlenght="6" maxlenght="25" autocomplete="off">
                     </div>
                 </div>
             </label>
@@ -57,7 +57,7 @@
                 <div class="input-area">
                     <div class="desc">* Repeat Password:</div>
                     <div class="camp">
-                        <input type="password" name="pass2" id="pass" maxlenght="25" autocomplete="off">
+                        <input type="password" name="pass2" id="pass" minlenght="6" maxlenght="25" autocomplete="off">
                     </div>
                 </div>
             </label>

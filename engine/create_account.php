@@ -11,8 +11,6 @@
             return $data;
         }
 
-        var_dump($_POST);
-
         $login = validate($_POST['login']);
         $password = validate($_POST['pass']);
         $confirmPass = validate($_POST['pass2']);
@@ -35,9 +33,13 @@
             if($password == $confirmPass) {
                 
                 if($email == $confirmEmail){
-                    $sql = "INSERT INTO accounts(login, password, email) VALUES('$login', '$password', '$email')";
+
+                    checkLoginExists($login);
+                    checkEmailExists($email);
+
+                    $password = str_replace("$2y$", "$2a$", password_hash($password, PASSWORD_BCRYPT));
+                    $sql = "INSERT INTO accounts (login, password, email) VALUES('$login', '$password', '$email')";
                     $result = mysqli_query($conn, $sql);
-                    print_r($result);
     
                     if($result) {
                         $_SESSION['success'] = 'Cadastro realizado com sucesso!';
@@ -65,6 +67,42 @@
             exit;    
         }
 
-        
+        if(!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/", $email)) {
+            $_SESSION['error'] = 'Email só pode conter letras e números!';
+            header("Location: ../?pages=register");
+            exit; 
+        }        
+    }
+
+    function checkEmailExists($email) {
+        include "db_connect.php";
+
+        $sql = "SELECT login, email FROM accounts WHERE email = '$email'";
+        $result = mysqli_query($conn, $sql);
+
+        if(mysqli_num_rows($result) > 0) {
+            $fetch_query = mysqli_fetch_assoc($result);
+            if($fetch_query['email'] == $email) {
+                $_SESSION['error'] = 'Este email já está em uso!';
+                header("Location: ../?pages=register");
+                exit; 
+            }
+        }
+    }
+
+    function checkLoginExists($login) {
+        include "db_connect.php";
+
+        $sql = "SELECT * FROM accounts WHERE login = '$login' LIMIT 1";
+        $result = mysqli_query($conn, $sql);
+
+        if(mysqli_num_rows($result) > 0) {
+            $fetch_query = mysqli_fetch_assoc($result);
+            if($fetch_query['login'] == $login) {
+                $_SESSION['error'] = 'Este login já está em uso!';
+                header("Location: ../?pages=register");
+                exit; 
+            }
+        }
     }
 ?>
