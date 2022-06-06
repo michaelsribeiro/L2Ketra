@@ -1,0 +1,65 @@
+@import "../core/reset";
+@import "../abstract/breakpoint";
+@import "../abstract/variables";
+@import "../abstract/mixins";
+
+.download {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .option {
+        width: 100%;
+        height: 230px;
+        display: flex;
+        margin-top: 30px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        h2 {
+            margin-bottom: 30px !important;
+        }
+
+        .btn-default {
+            &.first {
+                margin-bottom: 20px;
+            }
+        }
+
+        table {
+            width: 100%;
+            text-align: left;
+            color: $text-white;
+            background-color: rgba($color: #000000, $alpha: .3);
+
+            th {
+                padding: 6px 8px;
+            }
+
+            tr {
+
+                &.row-dark {
+                    background-color: rgba($color: #000000, $alpha: .4);
+                }
+
+            }
+            
+            td {
+                padding: 6px 8px;
+            }
+        }
+        
+        .instructions {
+            text-align: left;
+            
+            p {
+                line-height: 2;
+            }
+        }
+    }
+
+}
