@@ -15,4 +15,4 @@ accBtn.forEach((item) => {
             element.classList.add('active');
         }
     });
-})
+})  
