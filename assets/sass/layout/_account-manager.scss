@@ -1,0 +1,161 @@
+@import "../core/reset";
+@import "../abstract/breakpoint";
+@import "../abstract/variables";
+@import "../abstract/mixins";
+
+.account-manager {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+
+    .menu-nav {
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+
+        a {
+            padding: 10px 15px;
+            text-transform: uppercase;
+            color: rgba($color: #000, $alpha: .6);
+            font-weight: bold;
+            font-size: 12px;
+            border-bottom: 2px solid rgba($color: #000, $alpha: .5);
+
+            &.active {
+                cursor: default;                
+                color: rgba($color: #000, $alpha: 1);
+                border-bottom: 2px solid rgba($color: #000, $alpha: 1);
+            }
+
+            &:hover {
+                color: rgba($color: #000, $alpha: 1);
+                border-bottom: 2px solid rgba($color: #000, $alpha: 1);
+            }
+
+            &:nth-child(2) {
+                margin: 0 10px;
+            }
+        
+        }
+    }
+
+    .inner {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .rules {
+            width: 90%;
+            height: 260px;
+            padding: 20px 40px;
+            overflow: auto;
+            border: 2px solid rgba($color: #000000, $alpha: .2);
+            background: rgba($color: #000000, $alpha: .1);
+            
+            h1 {
+                font-size: 20px;
+            }
+
+            p {
+                font-size: 14px !important;
+                margin-bottom: 15px;
+            }
+        }
+    }
+
+    .registerForm {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        p {
+            margin: 20px 0;
+            font-size: 13px;
+        }
+
+        .msg {
+            display: table;
+            width: 450px;
+            padding: 10px;
+            margin: 30px 0;
+            text-align: center;
+            font-size: 14px;
+
+            &.warn {
+                background-color: #fffca1 !important;
+                color: #000;
+            }
+
+            &.danger {
+                background-color: #b92407 !important;
+                color: #fff;
+
+            }
+
+            &.success {
+                background-color: #055a1f !important;
+                color: #fff;
+
+            }
+        }
+
+        .dual-column {
+            width: 90%;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .formpadrao {
+                display: table;
+                padding: 2px;
+                border-radius: 2px;
+                margin: 2px 0;
+                border: 1px solid rgba($color: #000000, $alpha: .7);
+
+                .input-area {
+                    display: flex;
+                    flex-direction: row;
+                    background: #1a1a1a;
+                    border-radius: 2px;
+    
+                    .desc {
+                        width: 200px;
+                        height: 46px;
+                        padding: 0 10px;
+                        font-family: TPB, Arial;
+                        font-size: 12px;
+                        text-transform: uppercase;
+                        font-weight: bold;
+                        color: #fff;
+                        display: flex;
+                        align-items: center;
+                        justify-content: end;
+                    }
+    
+                    .camp {
+                        height: 46px;
+                        line-height: 46px;
+    
+                        input {
+                            border-radius: 2px;
+                            border: none;
+                            width: 230px;
+                            height: 36px;
+                            line-height: 36px;
+                            padding: 0 5px;
+                            margin: 5px 5px 0 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
