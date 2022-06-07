@@ -1,0 +1,109 @@
+@import "../core/reset";
+@import "../abstract/breakpoint";
+@import "../abstract/variables";
+@import "../abstract/mixins";
+
+.server-info {
+    width: 100%;
+    @include flexCenter(row, center, start);
+
+    .server-info-column {
+        padding: 0 20px;
+        @include flexCenter(column, start, start);
+        flex: 1;
+
+        .info-box {
+            width: 100%;
+
+            .info-title {
+                margin: 25px 0;
+
+                .title {
+                    font-size: 24px !important;
+                    margin-bottom: 0 !important;
+                }
+
+                .subtitle{
+                    font-style: italic;                    
+                    font-family: TPB, Arial;
+                    font-weight: 700;
+                    color: #353535;
+                }
+            }
+
+            .info-header {
+                width: 100%;
+                @include flexCenter(row, space-between, center);
+
+                .box-big {
+                    flex: 1;
+                    @include flexCenter();
+                    padding: 45px 15px;
+                    border-radius: 10px;
+                    background: #353535;
+
+                    &:nth-child(2) {
+                        margin: 0 15px;
+                    }
+
+                    span {
+                        color: #fff;
+                        font-weight: bold;
+                        font-size: 1.3rem;
+
+                        &:first-child {
+                            font-size: 1rem;
+                            color: #808080;
+                            font-style: italic;
+                        }
+                    }
+                }
+            }
+
+            .box {
+                width: 100%;
+                height: 53px;
+                margin-top: 15px;
+                background: #353535;
+                border-radius: 8px;
+                padding: 10px 20px;
+                color: #fff;
+                @include flexCenter(row, start, center);
+
+                .image {
+                    width: 32px;
+                    height: 32px;
+                    margin-right: 15px;
+                }
+
+                .desc {
+                    flex: 1;
+                    font-size: 14px;
+                    font-weight: bold;
+                }
+
+                .arrow {
+                    flex: 1;
+                    text-align: center;
+                    font-size: 1.8rem;
+                }
+
+                .text {
+                    flex: 1;
+                    font-size: 14px;
+                    text-align: right;
+                    color: #aaa;
+                }
+
+                div {
+                    width: 100%;
+                    @include flexCenter(column, start, start);
+
+                    .text {
+                        font-size: 14px !important;
+                    }
+                }
+            }
+        }
+    }
+}
