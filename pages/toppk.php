@@ -1,10 +1,10 @@
 <?php include "engine/db_connect.php"; ?>
 <div class="ranking">
     <div class="rank-opt">
-        <h1>Top PvP</h1>
+        <h1>Top Pk</h1>
         <div class="rank-nav">
-            <a href="./?pages=toppvp" class="active">Top PvP</a>
-            <a href="./?pages=toppk">Top Pk</a>
+            <a href="./?pages=toppvp">Top PvP</a>
+            <a href="./?pages=toppk" class="active">Top Pk</a>
             <a href="./?pages=topclan">Top Clan</a>
             <a href="./?pages=oly">Olympiad</a>
             <a href="./?pages=bosses">Boss Status</a>
@@ -26,7 +26,7 @@
         <tbody>
             <?php
                 $i = 0;
-                $sql =  mysqli_query($conn, "SELECT c.char_name, c.pvpkills, c.pkkills, c.online, c.onlinetime, d.clan_name FROM characters as c LEFT JOIN clan_data as d ON c.clanid = d.clan_id WHERE c.accesslevel = 0 ORDER BY pvpkills DESC, pkkills DESC, onlinetime DESC, char_name ASC LIMIT 20");
+                $sql =  mysqli_query($conn, "SELECT c.char_name, c.pvpkills, c.pkkills, c.online, c.onlinetime, d.clan_name FROM characters as c LEFT JOIN clan_data as d ON c.clanid = d.clan_id WHERE c.accesslevel = 0 ORDER BY pkkills DESC, pvpkills DESC, onlinetime DESC, char_name ASC LIMIT 20");
                 if(mysqli_num_rows($sql) > 0) {
                     while($fetch = mysqli_fetch_assoc($sql)){
                         $i++;
