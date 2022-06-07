@@ -1,0 +1,95 @@
+@import "../core/reset";
+@import "../abstract/breakpoint";
+@import "../abstract/variables";
+@import "../abstract/mixins";
+
+.ranking {
+    width: 100%;
+    margin-top: 30px;
+    @include flexCenter(column, start, center);
+
+    .rank-opt {
+        width: 100%;
+        margin-bottom: 30px;
+        @include flexCenter(column, start, center);
+
+        .rank-nav {
+            height: 54px;
+            margin-top: 30px;
+            @include flexCenter(row, start, center);
+
+            a {
+                padding: 12px 15px;
+                margin-left: 1px;
+                font-weight: bold;
+                transition: all .2s ease;
+                background: rgba($color: #000000, $alpha: .5);
+
+                &:hover {
+                    background: rgba($color: #000000, $alpha: .8);
+                }
+
+                &.active {
+                    color: #fff;
+                    background-color: #b92407;
+                }
+            }
+        }
+    }
+
+    .table {
+        width: 100%;
+        text-align: left;
+        font-size: 12px;
+        color: $text-black;
+        background-color: rgba($color: #fff, $alpha: .6);
+
+        th {
+            padding: 10px 0;
+            text-align: center;
+            font-family: TPB, Arial;
+            font-size: 12px;
+            font-weight: bold;
+            background: #1a1a1a;
+            color: #fff;
+            border-left: 1px solid #1a1a1a;
+        }
+
+        tr {
+            
+
+            &.row-dark {
+                background-color: rgba($color: #000000, $alpha: .4);
+            }
+
+        }
+        
+        td {
+            border-left: 1px solid #1a1a1a;
+            padding: 6px 8px;
+
+            &.pos {
+                width: 45px;
+                text-align: center;
+            }
+
+            &.name-strong {
+                font-weight: bold;
+            }
+
+            &.pvp {
+                color: #007f00;
+                font-weight: bold;
+            }
+
+            &.pk {
+                color: #ff0000;
+            }
+
+            &:first-child {
+                border: none;
+            }
+        }
+    }
+        
+}

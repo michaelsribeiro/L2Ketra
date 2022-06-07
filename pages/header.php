@@ -33,7 +33,7 @@
                 <a href="?pages=server"><li class="op-2"></li></a>
                 <a href="?pages=download"><li class="op-3"></li></a>
                 <a href="?pages=register"><li class="op-4"></li></a>
-                <a href="?pages=ranking"><li class="op-5"></li></a>
+                <a href="?pages=toppvp"><li class="op-5"></li></a>
                 <a href="?pages=donation"><li class="op-6"></li></a>
             </ul>
         </nav>
