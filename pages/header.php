@@ -1,3 +1,4 @@
+<?php ?>
 <header>
     <div class="container">
         <div class="user">

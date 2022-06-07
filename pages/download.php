@@ -1,3 +1,4 @@
+<?php ?>
 <div class="download">
     <h1>Downloads</h1>
     <div class="option">

@@ -1,3 +1,4 @@
+<?php ?>
 <article>
     <a href="?pages=register"><img src="assets/images/main-banner.jpg" alt="Register Now"></a>
     <hr>
