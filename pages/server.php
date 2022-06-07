@@ -1,3 +1,4 @@
+<?php ?>
 <div class="server-info">
     <div class="server-info-column">
         <div class="info-box">
