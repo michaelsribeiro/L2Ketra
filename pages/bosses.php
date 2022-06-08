@@ -67,9 +67,20 @@
         <tbody>
             <?php
                 $i = 0;
-                $sql = mysqli_query($conn, "SELECT b.boss_id, b.respawn_time AS respawn, c.name, c.level FROM raidboss_spawnlist AS b JOIN site_bosses AS c ON c.id = b.boss_id ORDER BY respawn DESC, level DESC, name ASC");
-                if(mysqli_num_rows($sql) > 0) {
-                    while($fetch = mysqli_fetch_assoc($sql)){
+                $sql = "SELECT 
+                            b.boss_id, 
+                            b.respawn_time AS respawn, 
+                            c.name, 
+                            c.level 
+                        FROM 
+                            raidboss_spawnlist AS b 
+                        JOIN 
+                            site_bosses AS c ON c.id = b.boss_id 
+                        ORDER BY respawn DESC, level DESC, name ASC";
+                $result = mysqli_query($conn, $sql);
+                
+                if(mysqli_num_rows($result) > 0) {
+                    while($fetch = mysqli_fetch_assoc($result)){
                         $i++;
                         
                         $fetch['respawn'] = (strlen($fetch['respawn']) > 11 ? ($fetch['respawn']/1000) : $fetch['respawn']);
@@ -80,8 +91,7 @@
                             $status = 'Alive';
                             $respawn = '-';
                         }
-
-
+                        
                          echo 
                          "<tr".(($i % 2 == 0) ? " class='row-dark'" : "").">
                             <td>".$fetch['name']."</td>

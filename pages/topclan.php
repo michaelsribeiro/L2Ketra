@@ -25,9 +25,22 @@
         <tbody>
             <?php
                 $i = 0;
-                $sql = mysqli_query($conn, "SELECT c.clan_name, c.clan_level, c.reputation_score, c.ally_name, d.char_name, (SELECT COUNT(*) FROM characters WHERE clanid = c.clan_id) AS membros FROM clan_data AS c LEFT JOIN characters AS d ON d.obj_Id = c.leader_id ORDER BY c.clan_level DESC, c.reputation_score DESC, membros DESC LIMIT 10");
-                if(mysqli_num_rows($sql) > 0) {
-                    while($fetch = mysqli_fetch_assoc($sql)){
+                $sql = "SELECT 
+                            c.clan_name, 
+                            c.clan_level, 
+                            c.reputation_score, 
+                            c.ally_name, 
+                            d.char_name, 
+                            (SELECT COUNT(*) FROM characters WHERE clanid = c.clan_id) AS membros 
+                        FROM 
+                            clan_data AS c 
+                        LEFT JOIN 
+                            characters AS d ON d.obj_Id = c.leader_id 
+                        ORDER BY c.clan_level DESC, c.reputation_score DESC, membros DESC LIMIT 10";
+                $result = mysqli_query($conn, $sql);
+
+                if(mysqli_num_rows($result) > 0) {
+                    while($fetch = mysqli_fetch_assoc($result)){
                         $i++;
                          echo 
                          "<tr".(($i % 2 == 0) ? " class='row-dark'" : "").">

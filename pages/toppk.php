@@ -25,10 +25,32 @@
         <tbody>
             <?php
                 $i = 0;
-                $sql =  mysqli_query($conn, "SELECT c.char_name, c.pvpkills, c.pkkills, c.online, c.onlinetime, d.clan_name FROM characters as c LEFT JOIN clan_data as d ON c.clanid = d.clan_id WHERE c.accesslevel = 0 ORDER BY pkkills DESC, pvpkills DESC, onlinetime DESC, char_name ASC LIMIT 20");
-                if(mysqli_num_rows($sql) > 0) {
-                    while($fetch = mysqli_fetch_assoc($sql)){
+                $sql = "SELECT 
+                            c.char_name, 
+                            c.pvpkills, 
+                            c.pkkills, 
+                            c.online, 
+                            c.onlinetime, 
+                            d.clan_name 
+                        FROM 
+                            characters as c 
+                        LEFT JOIN 
+                            clan_data as d ON c.clanid = d.clan_id 
+                        WHERE 
+                            c.accesslevel = 0 
+                        ORDER BY pkkills DESC, pvpkills DESC, onlinetime DESC, char_name ASC LIMIT 20";
+                $result = mysqli_query($conn, $sql);
+
+                if(mysqli_num_rows($result) > 0) {
+                    while($fetch = mysqli_fetch_assoc($result)){
                         $i++;
+
+                        $dias = intval($fetch['onlinetime'] / 86400);
+                        $marcador = $fetch['onlinetime'] % 86400; 
+                        $hora = intval($marcador / 3600);
+                        $marcador = $marcador % 3600; 
+                        $minuto = intval($marcador / 60);
+
                          echo 
                          "<tr".(($i % 2 == 0) ? " class='row-dark'" : "").">
                             <td class='pos'>".$i."</td>
@@ -37,11 +59,11 @@
                             <td>-</td>
                             <td class='pvp'>".$fetch['pvpkills']."</td>
                             <td class='pk'>".$fetch['pkkills']."</td>
-                            <td>".$fetch['onlinetime']."</td>
+                            <td>".$dias."d, ", $hora."h ", $minuto."m"."</td>
                         </tr>";
                     }
                 }
-            ?>             
+            ?>         
         </tbody>
     </table>
 </div>

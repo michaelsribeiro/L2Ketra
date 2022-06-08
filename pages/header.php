@@ -1,4 +1,4 @@
-<?php ?>
+<?php include "engine/db_connect.php"; ?>
 <header>
     <div class="container">
         <div class="user">
@@ -19,13 +19,22 @@
                     </div>
                 </form>
             </div>
-            <div class="forgot"><a href="#">Forgot your password?</a></div>
+            <div class="forgot"><a href="./?pages=forgot">Forgot your password?</a></div>
             <img class="avatar" src="assets/images/dark-elf-male.jpg"></img>
         </div>
         <div class="serverStatus">
             <span></span>
             <p>Server Online</p>
-            <div class="players_on">739</div>
+            <?php
+                $sql = "SELECT COUNT(*) AS quant FROM characters WHERE online > 0";
+                $result = mysqli_query($conn, $sql);
+
+                if(mysqli_num_rows($result) > 0) {
+                    $fetch = mysqli_fetch_assoc($result);
+
+                    echo "<div class='players_on'>".$fetch['quant']."</div>";
+                }
+            ?>            
         </div>
         <nav>
             <ul>
@@ -46,89 +55,130 @@
                 <div class="title">
                     <span class="pvp"></span>
                     <div class="desc">Top Pvp</div>
-                    <a href="http://#">view more »</a>
+                    <a href="./?pages=toppvp">view more »</a>
                 </div>
-                <div class="rank">
-                    <div class="p1 pos">1</div>
-                    <div class="nickname">Administrador</div>
-                    <div class="total">8230</div>
-                </div>
-                <div class="rank">
-                    <div class="p2 pos">2</div>
-                    <div class="nickname">Administrador</div>
-                    <div class="total">8230</div>
-                </div>
-                <div class="rank">
-                    <div class="p3 pos">3</div>
-                    <div class="nickname">Administrador</div>
-                    <div class="total">8230</div>
-                </div>
+                <?php
+                $i = 0;
+                $sql = "SELECT 
+                            c.char_name, 
+                            c.pvpkills
+                        FROM 
+                            characters as c 
+                        WHERE 
+                            c.accesslevel = 0 
+                        ORDER BY pvpkills DESC, char_name ASC LIMIT 3";
+                $result = mysqli_query($conn, $sql);
+
+                if(mysqli_num_rows($result) > 0) {
+                    while($fetch = mysqli_fetch_assoc($result)){
+                        $i++;
+                         echo 
+                         "<div class='rank'>
+                            <div class='p".$i." pos'>".$i."</div>
+                            <div class='nickname'>".$fetch['char_name']."</div>
+                            <div class='total'>".$fetch['pvpkills']."</div>
+                        </div>";
+                    }
+                }
+            ?>               
             </div>
             <div class="box-rank">
                 <div class="title">
                     <span class="pk"></span>
                     <div class="desc">Top Pk</div>
-                    <a href="http://#">view more »</a>
+                    <a href="./?pages=toppk">view more »</a>
                 </div>
-                <div class="rank">
-                    <div class="p1 pos">1</div>
-                    <div class="nickname">Administrador</div>
-                    <div class="total">8230</div>
-                </div>
-                <div class="rank">
-                    <div class="p2 pos">2</div>
-                    <div class="nickname">Administrador</div>
-                    <div class="total">8230</div>
-                </div>
-                <div class="rank">
-                    <div class="p3 pos">3</div>
-                    <div class="nickname">Administrador</div>
-                    <div class="total">8230</div>
-                </div>
+                <?php
+                $i = 0;
+                $sql = "SELECT 
+                            c.char_name, 
+                            c.pkkills 
+                        FROM 
+                            characters as c 
+                        WHERE 
+                            c.accesslevel = 0 
+                        ORDER BY pkkills DESC, char_name ASC LIMIT 3";
+                $result = mysqli_query($conn, $sql);
+
+                if(mysqli_num_rows($result) > 0) {
+                    while($fetch = mysqli_fetch_assoc($result)){
+                        $i++;
+                        echo 
+                        "<div class='rank'>
+                            <div class='p".$i." pos'>".$i."</div>
+                            <div class='nickname'>".$fetch['char_name']."</div>
+                            <div class='total'>".$fetch['pkkills']."</div>
+                        </div>";
+                    }
+                }
+                ?>
             </div>
             <div class="box-rank">
                 <div class="title">
                     <span class="clan"></span>
                     <div class="desc">Top Clan</div>
-                    <a href="http://#">view more »</a>
+                    <a href="./?pages=topclan">view more »</a>
                 </div>
-                <div class="rank">
-                    <div class="p1 pos">1</div>
-                    <div class="nickname">Administrador</div>
-                    <div class="total">8230</div>
-                </div>
-                <div class="rank">
-                    <div class="p2 pos">2</div>
-                        <div class="nickname">Administrador</div>
-                        <div class="total">8230</div>
-                </div>
-                <div class="rank">
-                    <div class="p3 pos">3</div>
-                    <div class="nickname">Administrador</div>
-                    <div class="total">8230</div>
-                </div>
+                <?php
+                $i = 0;
+                $sql = "SELECT 
+                            c.clan_name, 
+                            c.reputation_score 
+                        FROM 
+                            clan_data AS c 
+                        ORDER BY c.clan_level DESC, c.reputation_score DESC LIMIT 3";
+                $result = mysqli_query($conn, $sql);
+
+                if(mysqli_num_rows($result) > 0) {
+                    while($fetch = mysqli_fetch_assoc($result)){
+                        $i++;
+                         echo 
+                         "<div class='rank'>
+                            <div class='p".$i." pos'>".$i."</div>
+                            <div class='nickname'>".$fetch['clan_name']."</div>
+                            <div class='total'>".$fetch['reputation_score']."</div>
+                        </div>";
+                    }
+                }
+                ?>    
             </div>
             <div class="box-rank">
                 <div class="title">
                     <span class="online"></span>
                     <div class="desc">Top Online</div>
-                    <a href="http://#">view more »</a>
+                    <a href="./?pages=toppvp">view more »</a>
                 </div>
-                <div class="rank">
-                    <div class="p1 pos">1</div>
-                    <div class="nickname">Administrador</div>
-                    <div class="total">8230</div>
-                </div>
-                <div class="rank">
-                    <div class="p2 pos">2</div>
-                    <div class="nickname">Administrador</div>
-                    <div class="total">8230</div>
-                </div>
-                <div class="rank">
-                    <div class="p3 pos">3</div>
-                    <div class="nickname">Administrador</div>
-                    <div class="total">8230</div>
-                </div>
+                <?php
+                $i = 0;
+                $sql = "SELECT 
+                            c.char_name, 
+                            c.onlinetime
+                        FROM 
+                            characters as c 
+                        WHERE 
+                            c.accesslevel = 0 
+                        ORDER BY onlinetime DESC, char_name ASC LIMIT 3";
+                $result = mysqli_query($conn, $sql);
+
+                if(mysqli_num_rows($result) > 0) {
+                    while($fetch = mysqli_fetch_assoc($result)){
+                        $i++;
+
+                        $dias = intval($fetch['onlinetime'] / 86400);
+                        $marcador = $fetch['onlinetime'] % 86400; 
+                        $hora = intval($marcador / 3600);
+                        $marcador = $marcador % 3600; 
+                        $minuto = intval($marcador / 60);
+
+                        echo 
+                        "<div class='rank'>
+                            <div class='p".$i." pos'>".$i."</div>
+                            <div class='nickname'>".$fetch['char_name']."</div>
+                            <div class='total'>".$dias."d, ", $hora."h "."</div>
+                        </div>";
+                    }
+                }
+                ?>
             </div>
         </div>
     </div>
