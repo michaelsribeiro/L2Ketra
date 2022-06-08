@@ -6,7 +6,6 @@
             <a href="./?pages=toppvp" class="active">Top PvP</a>
             <a href="./?pages=toppk">Top Pk</a>
             <a href="./?pages=topclan">Top Clan</a>
-            <a href="./?pages=oly">Olympiad</a>
             <a href="./?pages=bosses">Boss Status</a>
             <a href="./?pages=sieges">Castle & Siege</a>
         </div>

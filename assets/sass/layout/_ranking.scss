@@ -76,19 +76,134 @@
                 font-weight: bold;
             }
 
-            &.pvp {
+            &.pvp,
+            &.alive {
                 color: #007f00;
                 font-weight: bold;
             }
 
-            &.pk {
+            &.pk,
+            &.dead {
                 color: #ff0000;
+                font-weight: bold;
+            }
+            
+            &.img {          
+                width: 200px;
+                height: 113px;                
+
+                &.dion {
+    
+                    span {
+                        display: block;
+                        width: 200px;
+                        height: 113px;
+                        border-radius: 10px;
+                        background: transparent url(../images/castles.jpg) no-repeat;
+                        background-position: -800px top;
+                    }
+                }
+
+                &.giran {
+    
+                    span {
+                        display: block;
+                        width: 200px;
+                        height: 113px;
+                        border-radius: 10px;
+                        background: rgba($color: #000000, $alpha: .6) url(../images/castles.jpg) no-repeat;
+                        background-position: -400px top;
+                    }
+                }
+
+                &.gludio {
+    
+                    span {
+                        display: block;
+                        width: 200px;
+                        height: 113px;
+                        border-radius: 10px;
+                        background: rgba($color: #000000, $alpha: .6) url(../images/castles.jpg) no-repeat;
+                        background-position: -1000px top;
+                    }
+                }
+
+                &.schuttgart {
+    
+                    span {
+                        display: block;
+                        width: 200px;
+                        height: 113px;
+                        border-radius: 10px;
+                        background: rgba($color: #000000, $alpha: .6) url(../images/castles.jpg) no-repeat;
+                        background-position: -1600px top;
+                    }
+                }
+
+                &.aden {
+    
+                    span {
+                        display: block;
+                        width: 200px;
+                        height: 113px;
+                        border-radius: 10px;
+                        background: rgba($color: #000000, $alpha: .6) url(../images/castles.jpg) no-repeat;
+                        background-position: left top;
+                    }
+                }
+
+                &.oren {
+    
+                    span {
+                        display: block;
+                        width: 200px;
+                        height: 113px;
+                        border-radius: 10px;
+                        background: rgba($color: #000000, $alpha: .6) url(../images/castles.jpg) no-repeat;
+                        background-position: -600px top;
+                    }
+                }
+
+                &.goddard {
+    
+                    span {
+                        display: block;
+                        width: 200px;
+                        height: 113px;
+                        border-radius: 10px;
+                        background: rgba($color: #000000, $alpha: .6) url(../images/castles.jpg) no-repeat;
+                        background-position: -200px top;
+                    }
+                }
+
+                &.innadril {
+    
+                    span {
+                        display: block;
+                        width: 200px;
+                        height: 113px;
+                        border-radius: 10px;
+                        background: rgba($color: #000000, $alpha: .6) url(../images/castles.jpg) no-repeat;
+                        background-position: -1200px top;
+                    }
+                }
+
+                &.rune {
+    
+                    span {
+                        display: block;
+                        width: 200px;
+                        height: 113px;
+                        border-radius: 10px;
+                        background: rgba($color: #000000, $alpha: .6) url(../images/castles.jpg) no-repeat;
+                        background-position: -1400px top;
+                    }
+                }
             }
 
             &:first-child {
                 border: none;
             }
         }
-    }
-        
+    }        
 }

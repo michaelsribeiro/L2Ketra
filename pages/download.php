@@ -13,7 +13,7 @@
     </div>
     <div class="option">
         <h2>Requirements</h2>
-        <table class="table">
+        <table cellspacing="0" cellpadding="0" border="0" class="table">
             <thead>
                 <tr>
                 <th scope="col">Setup</th>
