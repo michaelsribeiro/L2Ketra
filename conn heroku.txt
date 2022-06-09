@@ -1,6 +1,0 @@
-:@/?reconnect=true
-
-user -> b2d1def57a4be5
-password -> 03a148a9
-host -> us-cdbr-east-05.cleardb.net
-bd -> heroku_64fa31b55003450
