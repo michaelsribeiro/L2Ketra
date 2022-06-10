@@ -12,6 +12,7 @@ function validate($data){
 
 $login = '';
 $password = '';
+$change = $_POST['change'];
 
 if(isset($_POST['login'])) {
     if(empty(validate($_POST['login']))) {
@@ -31,7 +32,7 @@ if(isset($_POST['password'])) {
 
 if(!empty($login) || !empty($password)) {
 
-    $sql_code = "SELECT login, password FROM accounts WHERE login = '$login' LIMIT 1";
+    $sql_code = "SELECT login, password, email FROM accounts WHERE login = '$login' LIMIT 1";
     $sql_exec = $mysqli->query($sql_code) or die($mysqli->$error);
     $hashed_password = $sql_exec->fetch_assoc();
 
@@ -43,19 +44,40 @@ if(!empty($login) || !empty($password)) {
 
         $_SESSION['loggedin'] = true;
         $_SESSION['login'] = $login;
+        $_SESSION['email'] =  $hashed_password['email'];
 
-        header('Location: ../?pages=home');
-        exit;
+        if(isset($change)){
+            header("Location: ../?pages=changepass");
+            exit; 
+        } else {
+            header("Location: ../?pages=home");
+            exit; 
+        }
     } else {
-        $_SESSION['error-user'] = 'Login ou senha incorretos!';
-        header("Location: ../?pages=home");
-        exit; 
+
+        if(isset($change)){
+            $_SESSION['error'] = 'Login ou senha incorretos!';
+            header("Location: ../?pages=changepass");
+            exit; 
+        } else {
+            $_SESSION['error-user'] = 'Login ou senha incorretos!';
+            header("Location: ../?pages=home");
+            exit; 
+        }
     }            
     
 } else {    
-    $_SESSION['error-user'] = 'Preencha todos os campos!';
-    header("Location: ../?pages=home");
-    exit;            
+
+    if(isset($change)){
+        $_SESSION['error'] = 'Preencha todos os campos!';
+        header("Location: ../?pages=changepass");
+        exit; 
+    } else {
+        $_SESSION['error-user'] = 'Preencha todos os campos!';
+        header("Location: ../?pages=home");
+        exit; 
+    }
+               
 } 
 
 

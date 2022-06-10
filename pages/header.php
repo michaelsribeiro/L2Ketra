@@ -10,12 +10,12 @@
             ?>
              <?php echo "<div ".(isset($_SESSION['loggedin']) === true ? "class='loginarea logged'" : "class='loginarea'").">"?>
                 <a href="engine/logout.php" class="close" display="none"></a>
-                <span class="username"><?php echo isset($_SESSION['login']) ? strtoupper($_SESSION['login']) : ''; ?></span>
+                <span class="username" display="none"><?php echo isset($_SESSION['login']) ? strtoupper($_SESSION['login']) : ''; ?></span>
                 <form action="engine/login.php" method="POST">
                     <div class="formarea">
                         
                         <label>
-                            <input type="text" name="login" id="login" class="input" title="Username" autocomplete="off" placeholder="Login">
+                            <input type="text" name="login" id="login" class="input" title="Login" autocomplete="off" placeholder="Login">
                             <div class="user-icon user"></div>
                         </label>
                         <label>

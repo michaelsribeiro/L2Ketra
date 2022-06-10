@@ -1,3 +1,9 @@
+<?php 
+    if(isset($_SESSION['loggedin'])){
+        header('Location: ?pages=panel_changepass');
+        exit;
+    }
+?>
 <div class="account-manager">
     <h1>Change Password</h1>
     <div class="menu-nav">
@@ -9,7 +15,7 @@
         <span class="msg-reg danger">To change password, login is required.</span>
         <div class="dual-column">
             <?php
-               if($_SESSION['error-user']){
+               if($_SESSION['error']){
                 echo '<span class="msg-reg danger">'.$_SESSION['error'].'</span>';
                 $_SESSION['error'] = '';
             } 
@@ -31,6 +37,7 @@
                 </div>
             </label>            
         </div>
+        <input type="hidden" name="change">
         <input type="submit" class="btn-default" value="Login">
     </form>  
 </div>
