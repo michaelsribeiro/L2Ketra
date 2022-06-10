@@ -23,17 +23,17 @@
         </div>
     </div>
     <form action="engine/create_account.php" method="POST" class="registerForm">
-        <label class="msg warn">
+        <label class="msg-reg warn">
             <input type="checkbox" id="acceptRules" value="1" name="checkbox">
             <strong>I accept all the rules</strong>
         </label>
         <div class="dual-column">
             <?php
                 if($_SESSION['error']){
-                    echo '<span class="msg danger">'.$_SESSION['error'].'</span>';
+                    echo '<span class="msg-reg danger">'.$_SESSION['error'].'</span>';
                     $_SESSION['error'] = '';
                 } else if($_SESSION['success']){
-                    echo '<span class="msg success">'.$_SESSION['success'].'</span>';
+                    echo '<span class="msg-reg success">'.$_SESSION['success'].'</span>';
                     $_SESSION['success'] = '';
                 }
             ?>

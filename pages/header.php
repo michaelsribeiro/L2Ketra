@@ -1,33 +1,43 @@
-<?php include "engine/db_connect.php"; ?>
+<?php require_once "engine/db_connect.php"; ?>
 <header>
     <div class="container">
         <div class="user">
-            <div class="loginarea">
-                <form action="" method="POST">
+            <?php
+                if($_SESSION['error-user']){
+                    echo '<span class="msg danger">'.$_SESSION['error-user'].'</span>';
+                    $_SESSION['error-user'] = '';
+                }
+            ?>
+             <?php echo "<div ".(isset($_SESSION['loggedin']) === true ? "class='loginarea logged'" : "class='loginarea'").">"?>
+                <a href="engine/logout.php" class="close" display="none"></a>
+                <span class="username"><?php echo isset($_SESSION['login']) ? strtoupper($_SESSION['login']) : ''; ?></span>
+                <form action="engine/login.php" method="POST">
                     <div class="formarea">
+                        
                         <label>
                             <input type="text" name="login" id="login" class="input" title="Username" autocomplete="off" placeholder="Login">
                             <div class="user-icon user"></div>
                         </label>
                         <label>
-                            <input type="password" name="pass" id="pass" class="input" title="Password" autocomplete="off" placeholder="Password">
+                            <input type="password" name="password" id="pass" class="input" title="Password" autocomplete="off" placeholder="Password">
                             <div class="user-icon pass"></div>
                         </label>                            
                     </div>                       
                     <div class="box-btn">
-                        <input class="submit-btn" type="submit" value=" " name="login">
+                        <input class="submit-btn" type="submit" value=" ">
                     </div>
                 </form>
-            </div>
-            <div class="forgot"><a href="./?pages=forgot">Forgot your password?</a></div>
+                <div class="forgot"><a href="./?pages=forgot">Forgot your password?</a></div>
+            </div>            
             <img class="avatar" src="assets/images/dark-elf-male.jpg"></img>
+            
         </div>
         <div class="serverStatus">
             <span></span>
             <p>Server Online</p>
             <?php
                 $sql = "SELECT COUNT(*) AS quant FROM characters WHERE online > 0";
-                $result = mysqli_query($conn, $sql);
+                $result = mysqli_query($mysqli, $sql);
 
                 if(mysqli_num_rows($result) > 0) {
                     $fetch = mysqli_fetch_assoc($result);
@@ -67,7 +77,7 @@
                         WHERE 
                             c.accesslevel = 0 
                         ORDER BY pvpkills DESC, char_name ASC LIMIT 3";
-                $result = mysqli_query($conn, $sql);
+                $result = mysqli_query($mysqli, $sql);
 
                 if(mysqli_num_rows($result) > 0) {
                     while($fetch = mysqli_fetch_assoc($result)){
@@ -98,7 +108,7 @@
                         WHERE 
                             c.accesslevel = 0 
                         ORDER BY pkkills DESC, char_name ASC LIMIT 3";
-                $result = mysqli_query($conn, $sql);
+                $result = mysqli_query($mysqli, $sql);
 
                 if(mysqli_num_rows($result) > 0) {
                     while($fetch = mysqli_fetch_assoc($result)){
@@ -127,7 +137,7 @@
                         FROM 
                             clan_data AS c 
                         ORDER BY c.clan_level DESC, c.reputation_score DESC LIMIT 3";
-                $result = mysqli_query($conn, $sql);
+                $result = mysqli_query($mysqli, $sql);
 
                 if(mysqli_num_rows($result) > 0) {
                     while($fetch = mysqli_fetch_assoc($result)){
@@ -158,7 +168,7 @@
                         WHERE 
                             c.accesslevel = 0 
                         ORDER BY onlinetime DESC, char_name ASC LIMIT 3";
-                $result = mysqli_query($conn, $sql);
+                $result = mysqli_query($mysqli, $sql);
 
                 if(mysqli_num_rows($result) > 0) {
                     while($fetch = mysqli_fetch_assoc($result)){

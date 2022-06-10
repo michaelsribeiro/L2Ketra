@@ -1,4 +1,4 @@
-<?php include "engine/db_connect.php"; ?>
+<?php ?>
 <div class="ranking">
     <div class="rank-opt">
         <h1>Boss Status</h1>
@@ -25,7 +25,7 @@
         <tbody>
             <?php
                 $i = 0;
-                $sql = mysqli_query($conn, "SELECT b.boss_id, b.respawn_time AS respawn, c.name, c.level FROM grandboss_data AS b JOIN site_bosses AS c ON c.id = b.boss_id ORDER BY respawn DESC, level DESC, name ASC");
+                $sql = mysqli_query($mysqli, "SELECT b.boss_id, b.respawn_time AS respawn, c.name, c.level FROM grandboss_data AS b JOIN site_bosses AS c ON c.id = b.boss_id ORDER BY respawn DESC, level DESC, name ASC");
                 if(mysqli_num_rows($sql) > 0) {
                     while($fetch = mysqli_fetch_assoc($sql)){
                         $i++;
@@ -77,7 +77,7 @@
                         JOIN 
                             site_bosses AS c ON c.id = b.boss_id 
                         ORDER BY respawn DESC, level DESC, name ASC";
-                $result = mysqli_query($conn, $sql);
+                $result = mysqli_query($mysqli, $sql);
                 
                 if(mysqli_num_rows($result) > 0) {
                     while($fetch = mysqli_fetch_assoc($result)){

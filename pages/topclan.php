@@ -1,4 +1,4 @@
-<?php include "engine/db_connect.php"; ?>
+<?php  ?>
 <div class="ranking">
     <div class="rank-opt">
         <h1>Top Clan</h1>
@@ -37,7 +37,7 @@
                         LEFT JOIN 
                             characters AS d ON d.obj_Id = c.leader_id 
                         ORDER BY c.clan_level DESC, c.reputation_score DESC, membros DESC LIMIT 10";
-                $result = mysqli_query($conn, $sql);
+                $result = mysqli_query($mysqli, $sql);
 
                 if(mysqli_num_rows($result) > 0) {
                     while($fetch = mysqli_fetch_assoc($result)){

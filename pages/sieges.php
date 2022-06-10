@@ -1,4 +1,4 @@
-<?php include "engine/db_connect.php"; ?>
+<?php ?>
 <div class="ranking">
     <div class="rank-opt">
         <h1>Castle & Siege</h1>
@@ -40,7 +40,7 @@
                             clan_data AS d ON d.hasCastle = s.id
                         LEFT JOIN 
                             characters AS c ON c.obj_Id = d.leader_id";
-                $result = mysqli_query($conn, $sql);
+                $result = mysqli_query($mysqli, $sql);
 
                 if(mysqli_num_rows($result) > 0) {
                     while($fetch = mysqli_fetch_assoc($result)){
@@ -64,7 +64,7 @@
                                     clan_data AS d ON d.clan_id = s.clan_id
                                 WHERE 
                                     s.castle_id = $castle_id";
-                        $result2 = mysqli_query($conn, $sql2);
+                        $result2 = mysqli_query($mysqli, $sql2);
 
                         if(mysqli_num_rows($result2) > 0) {
                             while($fetch2 = mysqli_fetch_assoc($result2)){

@@ -39,7 +39,7 @@
 
                     $password = str_replace("$2y$", "$2a$", password_hash($password, PASSWORD_BCRYPT));
                     $sql = "INSERT INTO accounts (login, password, email) VALUES('$login', '$password', '$email')";
-                    $result = mysqli_query($conn, $sql);
+                    $result = mysqli_query($mysqli, $sql);
     
                     if($result) {
                         $_SESSION['success'] = 'Cadastro realizado com sucesso!';
@@ -78,7 +78,7 @@
         include "db_connect.php";
 
         $sql = "SELECT login, email FROM accounts WHERE email = '$email'";
-        $result = mysqli_query($conn, $sql);
+        $result = mysqli_query($mysqli, $sql);
 
         if(mysqli_num_rows($result) > 0) {
             $fetch_query = mysqli_fetch_assoc($result);
@@ -94,7 +94,7 @@
         include "db_connect.php";
 
         $sql = "SELECT * FROM accounts WHERE login = '$login' LIMIT 1";
-        $result = mysqli_query($conn, $sql);
+        $result = mysqli_query($mysqli, $sql);
 
         if(mysqli_num_rows($result) > 0) {
             $fetch_query = mysqli_fetch_assoc($result);

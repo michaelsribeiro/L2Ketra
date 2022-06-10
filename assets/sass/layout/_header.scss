@@ -17,6 +17,34 @@ header {
         top: 42px;
         left: 107px;
 
+        .msg {
+            width: 215px;
+            height: 22px;
+            padding: 0 8px;
+            border-radius: 5px;
+            position: absolute;
+            left: 126px;
+            top: -19px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+
+            &.danger {
+                background-color: #b92407 !important;
+                color: #fff;                
+                font-size: 10px;
+                font-weight: bold;
+            }
+
+            &.success {
+                background-color: #055a1f !important;
+                color: #fff;
+                font-size: 10px;
+                font-weight: bold;
+            }
+        }
+
         .loginarea{
             width: 100%;
             height: 100%;
@@ -24,6 +52,51 @@ header {
             background: transparent url(../images/css-stripes.png);
             background-position: 0 -347px;
             z-index: 2;
+
+            &.logged {
+                background-position: 0 -447px;
+
+                .close {
+                    display: block;
+                    width: 20px;
+                    height: 20px;
+                    position: absolute;
+                    top: 67px;
+                    left: 108px;
+                    background: transparent url(../images/css-stripes.png);
+                    background-position: -95px -136px;
+
+                    &:hover {
+                        background-position: -73px -136px;
+                    }
+                }
+
+                .username {
+                    position: absolute;
+                    top: 36px;
+                    left: 145px;
+                    color: rgba($color: #fff, $alpha: .8);
+                    font-family: TPB, Arial;
+                    font-weight: 700;
+                }
+
+                .box-btn {
+                    top: 20px;
+
+                    .submit-btn {
+                        background-position: -249px -127px;
+                    }
+                }
+
+                .forgot {
+                    display: none;
+                }
+
+                .formarea {
+                    display: none;
+                }
+
+            }
 
             .formarea {
                 left: 146px;
@@ -100,26 +173,26 @@ header {
                     }
                 }
             }
-        }
 
-        .forgot {
-            width: 215px;
-            height: 22px;
-            padding: 0 8px;
-            border-radius: 5px;
-            position: absolute;
-            left: 126px;
-            top: 96px;
-            background: rgba($color: #000000, $alpha: 0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            a {
-                color: #ffd257;
-                font-size: 10px;
-                font-weight: bold;
-            }
+            .forgot {
+                width: 215px;
+                height: 22px;
+                padding: 0 8px;
+                border-radius: 5px;
+                position: absolute;
+                left: 126px;
+                top: 96px;
+                background: rgba($color: #000000, $alpha: 0.7);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+    
+                a {
+                    color: #ffd257;
+                    font-size: 10px;
+                    font-weight: bold;
+                }
+            }           
         }
 
         .avatar {
@@ -131,7 +204,7 @@ header {
             z-index: 1;
         }
     }
-
+        
     .serverStatus {
         width: 318px;
         height: 50px;

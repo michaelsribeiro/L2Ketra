@@ -1,4 +1,4 @@
-<?php include "engine/db_connect.php"; ?>
+<?php  ?>
 <div class="ranking">
     <div class="rank-opt">
         <h1>Top PvP</h1>
@@ -39,7 +39,7 @@
                         WHERE 
                             c.accesslevel = 0 
                         ORDER BY pvpkills DESC, pkkills DESC, onlinetime DESC, char_name ASC LIMIT 20";
-                $result = mysqli_query($conn, $sql);
+                $result = mysqli_query($mysqli, $sql);
 
                 if(mysqli_num_rows($result) > 0) {
                     while($fetch = mysqli_fetch_assoc($result)){
