@@ -8,10 +8,26 @@ function validate($data){
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
     return $data;
-}    
+}
 
-$login = validate($_POST['login']);
-$password = validate($_POST['password']);
+$login = '';
+$password = '';
+
+if(isset($_POST['login'])) {
+    if(empty(validate($_POST['login']))) {
+        $_SESSION['error-user'] = "Insira seu login!";
+    } else {
+        $login = validate($_POST['login']);
+    }
+}
+
+if(isset($_POST['password'])) {
+    if(empty(validate($_POST['password']))) {
+        $_SESSION['error-user'] = "Insira sua senha!";
+    } else {
+        $password = validate($_POST['password']);
+    }
+}
 
 if(!empty($login) || !empty($password)) {
 
@@ -22,7 +38,6 @@ if(!empty($login) || !empty($password)) {
     if(password_verify($password, $hashed_password['password'])){
         $sql = "INSERT INTO site_ucp_lastlogins (login, ip, logdate) VALUES ('".$login."', '".$_SERVER['REMOTE_ADDR']."', '".time()."')";
         $sql_exec = $mysqli->query($sql) or die($mysqli->$error);
-        if(!$sql) { return false; }
 
         session_start();
 
@@ -37,8 +52,7 @@ if(!empty($login) || !empty($password)) {
         exit; 
     }            
     
-} else {
-    
+} else {    
     $_SESSION['error-user'] = 'Preencha todos os campos!';
     header("Location: ../?pages=home");
     exit;            

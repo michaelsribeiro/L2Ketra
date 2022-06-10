@@ -27,7 +27,7 @@
         <tbody>
             <?php
                 $i = 0;
-                $sql = "SELECT 
+                $sql_code = "SELECT 
                             s.id, 
                             s.name,
                             s.siegeDate AS sdate, 
@@ -40,22 +40,22 @@
                             clan_data AS d ON d.hasCastle = s.id
                         LEFT JOIN 
                             characters AS c ON c.obj_Id = d.leader_id";
-                $result = mysqli_query($mysqli, $sql);
+                $sql_exec = $mysqli->query($sql_code) or die($mysqli->$error);
 
-                if(mysqli_num_rows($result) > 0) {
-                    while($fetch = mysqli_fetch_assoc($result)){
+                if(mysqli_num_rows($sql_exec) > 0) {
+                    while($row = $sql_exec->fetch_assoc()){
                         $i++;
                         
-                        $clan_leader = (!empty($fetch['char_name']) ? $fetch['char_name'] : 'No Leader');
-                        $clan_owner = (!empty($fetch['clan_name']) ? $fetch['clan_name'] : 'No Owner');
-                        $alliance = (!empty($fetch['ally_name']) ? $fetch['ally_name'] : 'No Alliance');
-                        $war_day = (strlen($fetch['sdate']) > 11 ? date('d/m/Y H:i', ($fetch['sdate']/1000)) : date('d/m/Y H:i', $fetch['sdate']));
-                        $castle_id = $fetch['id'];
-                        $castle = $fetch['name'];
+                        $clan_leader = (!empty($row['char_name']) ? $row['char_name'] : 'No Leader');
+                        $clan_owner = (!empty($row['clan_name']) ? $row['clan_name'] : 'No Owner');
+                        $alliance = (!empty($row['ally_name']) ? $row['ally_name'] : 'No Alliance');
+                        $war_day = (strlen($row['sdate']) > 11 ? date('d/m/Y H:i', ($row['sdate']/1000)) : date('d/m/Y H:i', $row['sdate']));
+                        $castle_id = $row['id'];
+                        $castle = $row['name'];
 
-                        $castle_attacks = 0; $castle_def = 0; $castle_attacks_name = ''; $castle_def_name = ''; 
+                        $castle_attacks = 0; $castle_def = 0;
 
-                        $sql2 = "SELECT 
+                        $sql_code2 = "SELECT 
                                     s.type, 
                                     d.clan_name
                                 FROM 
@@ -64,33 +64,31 @@
                                     clan_data AS d ON d.clan_id = s.clan_id
                                 WHERE 
                                     s.castle_id = $castle_id";
-                        $result2 = mysqli_query($mysqli, $sql2);
+                        $sql_exec2 = $mysqli->query($sql_code2) or die($mysqli->$error);
 
-                        if(mysqli_num_rows($result2) > 0) {
-                            while($fetch2 = mysqli_fetch_assoc($result2)){
-                                if($fetch2['type'] == 1) {
+                        if(mysqli_num_rows($sql_exec2) > 0) {
+                            while($row = $sql_exec2->fetch_assoc()){
+                                $i++;
+                                if($row['type'] == 1) {
                                     $castle_attacks++;
-                                    $castle_attacks_name .= $fetch2['clan_name'];
                                 } else {
                                     $castle_def++;
-                                    $castle_def_name .= $fetch2['clan_name'];
                                 }                            
                             }
                         } else {
                             $castle_attacks = '0'; $castle_def = '0';
                         }
                         
-                         echo 
-                         "<tr".(($i % 2 == 0) ? " class='row-dark'" : "").">
-                            <td class='img ".strtolower($castle)."'><span></span></td>
-                            <td>".$castle."</td>
-                            <td>".$clan_owner."</td>
-                            <td>".$clan_leader."</td>
-                            <td>".$alliance."</td>
-                            <td>".$war_day."</td>
-                            <td>".$castle_attacks."</td>
-                            <td>".$castle_def."</td>
-                        </tr>";
+                        echo"<tr".(($i % 2 == 0) ? " class='row-dark'" : "").">
+                                <td class='img ".strtolower($castle)."'><span></span></td>
+                                <td>".$castle."</td>
+                                <td>".$clan_owner."</td>
+                                <td>".$clan_leader."</td>
+                                <td>".$alliance."</td>
+                                <td>".$war_day."</td>
+                                <td>".$castle_attacks."</td>
+                                <td>".$castle_def."</td>
+                            </tr>";
                     }
                 }
             ?>             

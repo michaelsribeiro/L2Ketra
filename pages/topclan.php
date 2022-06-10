@@ -25,7 +25,7 @@
         <tbody>
             <?php
                 $i = 0;
-                $sql = "SELECT 
+                $sql_code = "SELECT 
                             c.clan_name, 
                             c.clan_level, 
                             c.reputation_score, 
@@ -37,21 +37,21 @@
                         LEFT JOIN 
                             characters AS d ON d.obj_Id = c.leader_id 
                         ORDER BY c.clan_level DESC, c.reputation_score DESC, membros DESC LIMIT 10";
-                $result = mysqli_query($mysqli, $sql);
+                 $sql_exec = $mysqli->query($sql_code) or die($mysqli->$error);
 
-                if(mysqli_num_rows($result) > 0) {
-                    while($fetch = mysqli_fetch_assoc($result)){
+                 if(mysqli_num_rows($sql_exec) > 0) {
+                     while($row = $sql_exec->fetch_assoc()){
                         $i++;
-                         echo 
-                         "<tr".(($i % 2 == 0) ? " class='row-dark'" : "").">
-                            <td class='pos'>".$i."</td>
-                            <td class='name-strong'>".$fetch['clan_name']."</td>
-                            <td>".$fetch['char_name']."</td>
-                            <td>".$fetch['membros']."</td>
-                            <td>".$fetch['ally_name']."</td>
-                            <td>".$fetch['clan_level']."</td>
-                            <td>".$fetch['reputation_score']."</td>
-                        </tr>";
+
+                        echo"<tr".(($i % 2 == 0) ? " class='row-dark'" : "").">
+                                <td class='pos'>".$i."</td>
+                                <td class='name-strong'>".$row['clan_name']."</td>
+                                <td>".$row['char_name']."</td>
+                                <td>".$row['membros']."</td>
+                                <td>".$row['ally_name']."</td>
+                                <td>".$row['clan_level']."</td>
+                                <td>".$row['reputation_score']."</td>
+                            </tr>";
                     }
                 }
             ?>             

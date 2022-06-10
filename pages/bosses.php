@@ -25,14 +25,25 @@
         <tbody>
             <?php
                 $i = 0;
-                $sql = mysqli_query($mysqli, "SELECT b.boss_id, b.respawn_time AS respawn, c.name, c.level FROM grandboss_data AS b JOIN site_bosses AS c ON c.id = b.boss_id ORDER BY respawn DESC, level DESC, name ASC");
-                if(mysqli_num_rows($sql) > 0) {
-                    while($fetch = mysqli_fetch_assoc($sql)){
+                $sql_code = "SELECT 
+                            b.boss_id, 
+                            b.respawn_time AS respawn, 
+                            c.name, 
+                            c.level 
+                        FROM 
+                            grandboss_data AS b 
+                        JOIN 
+                            site_bosses AS c ON c.id = b.boss_id 
+                        ORDER BY respawn DESC, level DESC, name ASC";
+                $sql_exec = $mysqli->query($sql_code) or die($mysqli->$error);
+
+                if(mysqli_num_rows($sql_exec) > 0) {
+                    while($row = $sql_exec->fetch_assoc()){
                         $i++;
                         
-                        $fetch['respawn'] = (strlen($fetch['respawn']) > 11 ? ($fetch['respawn']/1000) : $fetch['respawn']);
-                        if($fetch['respawn'] > time()) {
-                            $respawn = date('d/m/Y H:i', $fetch['respawn']);
+                        $row['respawn'] = (strlen($row['respawn']) > 11 ? ($row['respawn']/1000) : $row['respawn']);
+                        if($row['respawn'] > time()) {
+                            $respawn = date('d/m/Y H:i', $row['respawn']);
                             $status = 'Dead';
                         } else {
                             $status = 'Alive';
@@ -40,13 +51,12 @@
                         }
 
 
-                         echo 
-                         "<tr".(($i % 2 == 0) ? " class='row-dark'" : "").">
-                            <td>".$fetch['name']."</td>
-                            <td>".$fetch['level']."</td>
-                            <td".($status == 'Alive' ? " class='alive'" : " class='dead'").">".$status."</td>
-                            <td>".$respawn."</td>
-                        </tr>";
+                        echo"<tr".(($i % 2 == 0) ? " class='row-dark'" : "").">
+                                <td>".$row['name']."</td>
+                                <td>".$row['level']."</td>
+                                <td".($status == 'Alive' ? " class='alive'" : " class='dead'").">".$status."</td>
+                                <td>".$respawn."</td>
+                            </tr>";
                     }
                 }
             ?>             
@@ -67,7 +77,7 @@
         <tbody>
             <?php
                 $i = 0;
-                $sql = "SELECT 
+                $sql_code = "SELECT 
                             b.boss_id, 
                             b.respawn_time AS respawn, 
                             c.name, 
@@ -77,28 +87,27 @@
                         JOIN 
                             site_bosses AS c ON c.id = b.boss_id 
                         ORDER BY respawn DESC, level DESC, name ASC";
-                $result = mysqli_query($mysqli, $sql);
-                
-                if(mysqli_num_rows($result) > 0) {
-                    while($fetch = mysqli_fetch_assoc($result)){
+                $sql_exec = $mysqli->query($sql_code) or die($mysqli->$error);
+
+                if(mysqli_num_rows($sql_exec) > 0) {
+                    while($row = $sql_exec->fetch_assoc()){
                         $i++;
                         
-                        $fetch['respawn'] = (strlen($fetch['respawn']) > 11 ? ($fetch['respawn']/1000) : $fetch['respawn']);
-                        if($fetch['respawn'] > time()) {
-                            $respawn = date('d/m/Y H:i', $fetch['respawn']);
+                        $row['respawn'] = (strlen($row['respawn']) > 11 ? ($row['respawn']/1000) : $row['respawn']);
+                        if($row['respawn'] > time()) {
+                            $respawn = date('d/m/Y H:i', $row['respawn']);
                             $status = 'Dead';
                         } else {
                             $status = 'Alive';
                             $respawn = '-';
                         }
                         
-                         echo 
-                         "<tr".(($i % 2 == 0) ? " class='row-dark'" : "").">
-                            <td>".$fetch['name']."</td>
-                            <td>".$fetch['level']."</td>
-                            <td".($status == 'Alive' ? " class='alive'" : " class='dead'").">".$status."</td>
-                            <td>".$respawn."</td>
-                        </tr>";
+                        echo"<tr".(($i % 2 == 0) ? " class='row-dark'" : "").">
+                                <td>".$row['name']."</td>
+                                <td>".$row['level']."</td>
+                                <td".($status == 'Alive' ? " class='alive'" : " class='dead'").">".$status."</td>
+                                <td>".$respawn."</td>
+                            </tr>";
                     }
                 }
             ?>             

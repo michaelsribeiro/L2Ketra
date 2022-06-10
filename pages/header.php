@@ -36,13 +36,13 @@
             <span></span>
             <p>Server Online</p>
             <?php
-                $sql = "SELECT COUNT(*) AS quant FROM characters WHERE online > 0";
-                $result = mysqli_query($mysqli, $sql);
+                $sql_code = "SELECT COUNT(*) AS quant FROM characters WHERE online > 0";
+                $sql_exec = $mysqli->query($sql_code) or die($mysqli->$error);
 
-                if(mysqli_num_rows($result) > 0) {
-                    $fetch = mysqli_fetch_assoc($result);
-
-                    echo "<div class='players_on'>".$fetch['quant']."</div>";
+                if(mysqli_num_rows($sql_exec) > 0) {
+                    while($row = $sql_exec->fetch_assoc()){
+                        echo "<div class='players_on'>".$row['quant']."</div>";
+                    }
                 }
             ?>            
         </div>
@@ -69,7 +69,7 @@
                 </div>
                 <?php
                 $i = 0;
-                $sql = "SELECT 
+                $sql_code = "SELECT 
                             c.char_name, 
                             c.pvpkills
                         FROM 
@@ -77,17 +77,17 @@
                         WHERE 
                             c.accesslevel = 0 
                         ORDER BY pvpkills DESC, char_name ASC LIMIT 3";
-                $result = mysqli_query($mysqli, $sql);
+                $sql_exec = $mysqli->query($sql_code) or die($mysqli->$error);
 
-                if(mysqli_num_rows($result) > 0) {
-                    while($fetch = mysqli_fetch_assoc($result)){
+                if(mysqli_num_rows($sql_exec) > 0) {
+                    while($row = $sql_exec->fetch_assoc()){
                         $i++;
-                         echo 
-                         "<div class='rank'>
-                            <div class='p".$i." pos'>".$i."</div>
-                            <div class='nickname'>".$fetch['char_name']."</div>
-                            <div class='total'>".$fetch['pvpkills']."</div>
-                        </div>";
+
+                        echo"<div class='rank'>
+                                <div class='p".$i." pos'>".$i."</div>
+                                <div class='nickname'>".$row['char_name']."</div>
+                                <div class='total'>".$row['pvpkills']."</div>
+                            </div>";
                     }
                 }
             ?>               
@@ -100,7 +100,7 @@
                 </div>
                 <?php
                 $i = 0;
-                $sql = "SELECT 
+                $sql_code = "SELECT 
                             c.char_name, 
                             c.pkkills 
                         FROM 
@@ -108,17 +108,16 @@
                         WHERE 
                             c.accesslevel = 0 
                         ORDER BY pkkills DESC, char_name ASC LIMIT 3";
-                $result = mysqli_query($mysqli, $sql);
+                $sql_exec = $mysqli->query($sql_code) or die($mysqli->$error);
 
-                if(mysqli_num_rows($result) > 0) {
-                    while($fetch = mysqli_fetch_assoc($result)){
+                if(mysqli_num_rows($sql_exec) > 0) {
+                    while($row = $sql_exec->fetch_assoc()){
                         $i++;
-                        echo 
-                        "<div class='rank'>
-                            <div class='p".$i." pos'>".$i."</div>
-                            <div class='nickname'>".$fetch['char_name']."</div>
-                            <div class='total'>".$fetch['pkkills']."</div>
-                        </div>";
+                        echo"<div class='rank'>
+                                <div class='p".$i." pos'>".$i."</div>
+                                <div class='nickname'>".$row['char_name']."</div>
+                                <div class='total'>".$row['pkkills']."</div>
+                            </div>";
                     }
                 }
                 ?>
@@ -131,22 +130,21 @@
                 </div>
                 <?php
                 $i = 0;
-                $sql = "SELECT 
+                $sql_code = "SELECT 
                             c.clan_name, 
                             c.reputation_score 
                         FROM 
                             clan_data AS c 
                         ORDER BY c.clan_level DESC, c.reputation_score DESC LIMIT 3";
-                $result = mysqli_query($mysqli, $sql);
+                $sql_exec = $mysqli->query($sql_code) or die($mysqli->$error);
 
-                if(mysqli_num_rows($result) > 0) {
-                    while($fetch = mysqli_fetch_assoc($result)){
+                if(mysqli_num_rows($sql_exec) > 0) {
+                    while($row = $sql_exec->fetch_assoc()){
                         $i++;
-                         echo 
-                         "<div class='rank'>
+                        echo"<div class='rank'>
                             <div class='p".$i." pos'>".$i."</div>
-                            <div class='nickname'>".$fetch['clan_name']."</div>
-                            <div class='total'>".$fetch['reputation_score']."</div>
+                            <div class='nickname'>".$row['clan_name']."</div>
+                            <div class='total'>".$row['reputation_score']."</div>
                         </div>";
                     }
                 }
@@ -160,7 +158,7 @@
                 </div>
                 <?php
                 $i = 0;
-                $sql = "SELECT 
+                $sql_code = "SELECT 
                             c.char_name, 
                             c.onlinetime
                         FROM 
@@ -168,24 +166,23 @@
                         WHERE 
                             c.accesslevel = 0 
                         ORDER BY onlinetime DESC, char_name ASC LIMIT 3";
-                $result = mysqli_query($mysqli, $sql);
+                $sql_exec = $mysqli->query($sql_code) or die($mysqli->$error);
 
-                if(mysqli_num_rows($result) > 0) {
-                    while($fetch = mysqli_fetch_assoc($result)){
+                if(mysqli_num_rows($sql_exec) > 0) {
+                    while($row = $sql_exec->fetch_assoc()){
                         $i++;
 
-                        $dias = intval($fetch['onlinetime'] / 86400);
-                        $marcador = $fetch['onlinetime'] % 86400; 
+                        $dias = intval($row['onlinetime'] / 86400);
+                        $marcador = $row['onlinetime'] % 86400; 
                         $hora = intval($marcador / 3600);
                         $marcador = $marcador % 3600; 
                         $minuto = intval($marcador / 60);
 
-                        echo 
-                        "<div class='rank'>
-                            <div class='p".$i." pos'>".$i."</div>
-                            <div class='nickname'>".$fetch['char_name']."</div>
-                            <div class='total'>".$dias."d, ", $hora."h "."</div>
-                        </div>";
+                        echo"<div class='rank'>
+                                <div class='p".$i." pos'>".$i."</div>
+                                <div class='nickname'>".$row['char_name']."</div>
+                                <div class='total'>".$dias."d, ", $hora."h "."</div>
+                            </div>";
                     }
                 }
                 ?>
