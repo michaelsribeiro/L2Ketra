@@ -29,7 +29,7 @@
                 </form>
                 <div class="forgot"><a href="./?pages=forgot">Forgot your password?</a></div>
             </div>            
-            <img class="avatar" src="assets/images/dark-elf-male.jpg"></img>
+            <?php echo "<img class='avatar' src='assets/images/".(isset($_SESSION['loggedin']) === true ? "female-elf.jpg" : "dark-elf-male.jpg")."'></img>"?>
             
         </div>
         <div class="serverStatus">
