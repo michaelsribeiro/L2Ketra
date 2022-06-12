@@ -1,0 +1,19 @@
+@import "../core/reset";
+@import "../abstract/breakpoint";
+@import "../abstract/variables";
+@import "../abstract/mixins";
+
+.rules {
+    margin: 30px 30px;
+
+    h1 {
+        font-size: 24px !important;
+        margin-left: 10px;
+    }
+
+    .rules-text {
+        p {
+            margin-bottom: 15px;
+        }
+    }
+}

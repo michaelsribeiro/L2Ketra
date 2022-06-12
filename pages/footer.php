@@ -5,20 +5,18 @@
             <div class="account">
                 <ul class="navfooter">
                     <h2>Account</h2>
-                    <li><a href="#">Register</a></li>
-                    <li><a href="#">Change Password</a></li>
-                    <li><a href="#">Recover Account</a></li>
+                    <li><a href="?pages=register">Register</a></li>
+                    <li><a href="?pages=changepass">Change Password</a></li>
+                    <li><a href="?pages=forgot">Recover Account</a></li>
                 </ul>
             </div>
             <div class="server">
                 <ul class="navfooter">
                     <h2>Server</h2>
-                    <li><a href="#">Downloads</a></li>
-                    <li><a href="#">Information</a></li>
-                    <li><a href="#">Support</a></li>
-                    <li><a href="#">Rules</a></li>
-                    <li><a href="#">Donation</a></li>
-                    <li><a href="#">Gallery</a></li>
+                    <li><a href="?pages=download">Downloads</a></li>
+                    <li><a href="?pages=server">Information</a></li>
+                    <li><a href="?pages=rules">Rules</a></li>
+                    <li><a href="?pages=donation">Donation</a></li>
                 </ul>
             </div>
             <div class="info">
