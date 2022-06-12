@@ -36,15 +36,15 @@ Neste projeto foi clonado o design da página original, sendo desenvolvido por m
 
 ```
 - Clone this repo:
-  $ git clone https://github.com/michaelsribeiro/L2Ketra.git
+  $git clone https://github.com/michaelsribeiro/L2Ketra.git
 
 - Install the project in the htdocs folder:
-  $ C:/xampp/htdocs/L2Ketra
+  $C:/xampp/htdocs/L2Ketra
 
-- $ Turn on xampp server
+- $Turn on xampp server
 
 - Open your browser in:
-  $ http://localhost/L2Ketra/ 
+  $http://localhost/L2Ketra/ 
 ```
 
 <h2>Licence 📝</h2>
