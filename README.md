@@ -28,9 +28,9 @@ Neste projeto foi clonado o design da página original, sendo desenvolvido por m
 - [XAMPP]()
 
 <h2>Features</h2>
-- Register system
-- Login system with SESSION for access the restrict pages change password and email
-- 
+- Register system<br/>
+- Login system with SESSION for access the restrict pages change password and email<br/>
+- <br/>
 
 <h2>How to use 🤔</h2>
 
