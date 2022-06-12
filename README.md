@@ -16,7 +16,7 @@ See the project in action [here](https://l2-ketra.herokuapp.com/)
    
 Este website é um clone da página [Lineage 2 Ketra](https://l2ketra.com/), <br/>
 feito com o intuito de estudo dos fundamentos da linguagem PHP.<br/>
-Neste projeto foi clonado o design da página original, sendo desenvolvido por mim os scripts PHP para funcionamento do site.
+Neste projeto foi clonado somo design da página original, sendo desenvolvido por mim os scripts PHP para funcionamento do site.
 
 
 <h2>Technologies 🚀</h2>
@@ -27,7 +27,7 @@ Neste projeto foi clonado o design da página original, sendo desenvolvido por m
 - [MySQL]()
 - [XAMPP]()
 
-<h2>Features</h2>
+<h2>Features ✨</h2>
 - Register system<br/>
 - Login system with SESSION for access the restrict pages change password and email<br/>
 - <br/>
@@ -36,15 +36,15 @@ Neste projeto foi clonado o design da página original, sendo desenvolvido por m
 
 ```
 - Clone this repo:
-  $git clone https://github.com/michaelsribeiro/L2Ketra.git
+  `git clone https://github.com/michaelsribeiro/L2Ketra.git`
 
 - Install the project in the htdocs folder:
-  $C:/xampp/htdocs/L2Ketra
+  `C:/xampp/htdocs/L2Ketra`
 
-- $Turn on xampp server
+- `Turn on xampp server`
 
 - Open your browser in:
-  $http://localhost/L2Ketra/ 
+  `http://localhost/L2Ketra/`
 ```
 
 <h2>Licence 📝</h2>
