@@ -15,8 +15,7 @@
 <body>
     <?php
         session_start(); 
-        include "pages/header.php";
-        require_once "engine/db_connect.php"; ?>
+        include "pages/header.php"; ?>
     <section>
         <div class="container page">
             <?php             

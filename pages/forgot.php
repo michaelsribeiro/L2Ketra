@@ -1,3 +1,9 @@
+<?php
+    if(isset($_SESSION['loggedin'])){
+        header('Location: ?pages=panel_changepass');
+        exit;
+    }
+?>
 <div class="account-manager">
     <h1>Forgot Password</h1>
     <div class="menu-nav">

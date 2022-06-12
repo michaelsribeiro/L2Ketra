@@ -5,12 +5,12 @@
     }
 ?>
 <div class="account-manager">
-    <h1>Change Password</h1>
+    <h1>Change E-mail</h1>
     <div class="menu-nav">
-        <a href="?pages=changepass" class="active">Change Password</a>
-        <a href="?pages=panel_changeemail">Change Email</a>
+        <a href="?pages=changepass">Change Password</a>
+        <a href="?pages=panel_changeemail" class="active">Change Email</a>
     </div>    
-    <form action="engine/change_password.php" method="POST" class="registerForm">
+    <form action="engine/change_email.php" method="POST" class="registerForm">
         <div class="dual-column">
             <?php
                 if($_SESSION['error']){
@@ -31,7 +31,7 @@
             </label>
             <label class="formpadrao">
                 <div class="input-area">
-                    <div class="desc">E-mail:</div>
+                    <div class="desc">Current E-mail:</div>
                     <div class="camp">
                         <input type="email" name="email" id="email" maxlenght="100" autocomplete="off" disabled value="<?php echo $_SESSION['email'] ?>">
                     </div>
@@ -39,25 +39,17 @@
             </label>
             <label class="formpadrao">
                 <div class="input-area">
-                    <div class="desc">Current Password:</div>
+                    <div class="desc">New E-mail:</div>
                     <div class="camp">
-                        <input type="password" name="pass" id="pass" minlenght="6" maxlenght="25" autocomplete="off">
+                        <input type="email" name="newemail" id="email" maxlenght="100" autocomplete="off">
                     </div>
                 </div>
             </label>
             <label class="formpadrao">
                 <div class="input-area">
-                    <div class="desc">New Password:</div>
+                    <div class="desc">Repeat E-mail:</div>
                     <div class="camp">
-                        <input type="password" name="newpass" id="pass" minlenght="6" maxlenght="25" autocomplete="off">
-                    </div>
-                </div>
-            </label>            
-            <label class="formpadrao">
-                <div class="input-area">
-                    <div class="desc">Repeat Password:</div>
-                    <div class="camp">
-                        <input type="password" name="newpass2" id="pass" minlenght="6" maxlenght="25" autocomplete="off">
+                        <input type="email" name="newemail2" id="email" maxlenght="100" autocomplete="off">
                     </div>
                 </div>
             </label>

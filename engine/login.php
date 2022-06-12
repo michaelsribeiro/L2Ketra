@@ -16,7 +16,15 @@ $change = $_POST['change'];
 
 if(isset($_POST['login'])) {
     if(empty(validate($_POST['login']))) {
-        $_SESSION['error-user'] = "Insira seu login!";
+        if(isset($change)){
+            $_SESSION['error'] = 'Insira seu login!';
+            header("Location: ../?pages=changepass");
+            exit; 
+        } else {
+            $_SESSION['error-user'] = 'Insira seu login!';
+            header("Location: ../?pages=home");
+            exit; 
+        }
     } else {
         $login = validate($_POST['login']);
     }
@@ -24,7 +32,15 @@ if(isset($_POST['login'])) {
 
 if(isset($_POST['password'])) {
     if(empty(validate($_POST['password']))) {
-        $_SESSION['error-user'] = "Insira sua senha!";
+        if(isset($change)){
+            $_SESSION['error'] = 'Insira sua senha!';
+            header("Location: ../?pages=changepass");
+            exit; 
+        } else {
+            $_SESSION['error-user'] = 'Insira sua senha!';
+            header("Location: ../?pages=home");
+            exit; 
+        }
     } else {
         $password = validate($_POST['password']);
     }
