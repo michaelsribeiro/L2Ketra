@@ -16,7 +16,7 @@
 ## 📖 About 
    
 This website is a clone of the page [Lineage 2 Ketra](https://l2ketra.com/), made with the aim of studying the fundamentals of the PHP language.<br/>
-In this project, the original page design was cloned, and the site scripts were developed by myself.
+In this project, the original page design was cloned, and the site scripts were developed by myself.<br/>
 Credits for original design [Atualstudio](https://atual.studio/)
 
 
