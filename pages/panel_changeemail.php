@@ -54,7 +54,7 @@
                 </div>
             </label>
         </div>
-        <input type="submit" class="btn-default" value="Change Password">
+        <input type="submit" class="btn-default" value="Change Email">
     </form>  
 </div>
 
