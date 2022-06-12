@@ -1,14 +1,15 @@
-<h2 align="center">Preview 🖥️</h2>
-
-   <p align="center">
-      <img src="assets/images/image.gif" width="100%" alt="Lineage 2 Ketra Website"/>
-   </p>  
-   
-   <br>
-   
 <h1 align="center">Lineage 2 Ketra Website</h1>
 
-See the project in action [here](https://l2-ketra.herokuapp.com/)
+<h3 align=center>
+
+💻 **See the project in action [here](https://l2-ketra.herokuapp.com/)**
+
+</h3
+
+<p align="center">
+   <img src="assets/images/image.gif" width="100%" alt="Lineage 2 Ketra Website"/>
+</p> 
+
 <br>
 <br>
 
