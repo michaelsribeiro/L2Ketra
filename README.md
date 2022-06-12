@@ -14,9 +14,8 @@ See the project in action [here](https://l2-ketra.herokuapp.com/)
 
 ## 📖 About 
    
-Este website é um clone da página [Lineage 2 Ketra](https://l2ketra.com/), <br/>
-feito com o intuito de estudo dos fundamentos da linguagem PHP.<br/>
-Neste projeto foi clonado somo design da página original, sendo desenvolvido por mim os scripts PHP para funcionamento do site.
+Este website é um clone da página [Lineage 2 Ketra](https://l2ketra.com/), feito com o intuito de estudo dos fundamentos da linguagem PHP.<br/>
+Neste projeto foi clonado o design da página original, sendo desenvolvido por mim os scripts PHP para funcionamento do site.
 
 
 ## 🚀 Technologies 
