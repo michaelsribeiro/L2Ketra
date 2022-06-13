@@ -4,7 +4,7 @@
 
 <h3 align=center>
 
-💻 *See the project online [here](https://l2-ketra.herokuapp.com/)*
+💻 ***See the project online [here](https://l2-ketra.herokuapp.com/)***
 
 </h3
 
