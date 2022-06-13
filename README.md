@@ -20,7 +20,7 @@
 <h3>Lineage 2 Ketra Website</h3>
 
 This website is a clone of the page [Lineage 2 Ketra](https://l2ketra.com/), made with the aim of studying the PHP language.<br/>
-In this project, the original page design was cloned, and the site scripts were developed by myself.<br/>
+In this project, the scripts were developed by myself.<br/>
 Credits for original design [Atualstudio](https://atual.studio/)
 
 
@@ -34,8 +34,10 @@ Credits for original design [Atualstudio](https://atual.studio/)
 
 ## ✨ Features
 - Register system<br/>
-- Login system with SESSION for access the restrict pages change password and email<br/>
-- <br/>
+- Login system<br/>
+- SESSION system for some restrict pages<br/>
+- Change password and change e-mail funcionalities<br/>
+- Recover password with PHP MAILER
 
 ## 🤔 How to use
 
