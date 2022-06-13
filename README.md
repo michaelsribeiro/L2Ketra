@@ -2,15 +2,11 @@
    <img src="assets/images/logo-Ketra.png" alt="Lineage 2 Ketra Website"/>
 </p> 
 
-<h3 align=center>
+<div align=center>
 
-💻 ***See the project online [here](https://l2-ketra.herokuapp.com/)***
-
-</h3
-
-<p align="center">
-   <img src="assets/images/image.gif" width="100%" alt="Lineage 2 Ketra Website"/>
-</p> 
+   💻 **See the project online [here](https://l2-ketra.herokuapp.com/)**
+   
+</div>
 
 <br>
 <br>
