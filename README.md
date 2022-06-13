@@ -41,7 +41,7 @@ Credits for original design [Atualstudio](https://atual.studio/)
 - Recover password with PHP MAILER<br/>
 - Ranking system (Best Clans, Players with most kills, Boss Status, Castle Sieges)
 
-## Features in development
+## 👨🏽‍💻 Features in development
 
 - Administrator Panel<br/>
 - User Panel<br/>
