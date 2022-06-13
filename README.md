@@ -1,4 +1,7 @@
-<h1 align="center">Lineage 2 Ketra Website</h1>
+<p align="center">
+   <img src="assets/images/logo-Ketra.png" alt="Lineage 2 Ketra Website"/>
+   <h2 align="center">Lineage 2 Ketra Website</h2>
+</p> 
 
 <h3 align=center>
 
