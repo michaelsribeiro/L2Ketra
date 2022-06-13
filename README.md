@@ -33,11 +33,12 @@ Credits for original design [Atualstudio](https://atual.studio/)
 - [XAMPP](https://www.apachefriends.org/pt_br/index.html)
 
 ## ✨ Features
-- Register system<br/>
-- Login system<br/>
-- SESSION system for some restrict pages<br/>
+- Register<br/>
+- Login<br/>
+- Required login for some restrict pages<br/>
 - Change password and change e-mail funcionalities<br/>
-- Recover password with PHP MAILER
+- Recover password with PHP MAILER<br/>
+- Ranking system (Best Clans, Players with most kills, Boss Status, Castle Sieges)
 
 ## 🤔 How to use
 
