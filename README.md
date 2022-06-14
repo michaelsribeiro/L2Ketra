@@ -30,10 +30,9 @@ Credits for original design [Atualstudio](https://atual.studio/)
 
 ## ✨ Features
 
-- Register<br/>
+- Register new account<br/>
 - Login<br/>
-- Required login for some restrict pages<br/>
-- Change password and change e-mail funcionalities<br/>
+- Change password and change e-mail funcionalities (Login required)<br/>
 - Recover password with PHP MAILER<br/>
 - Ranking system (Best Clans, Players with most kills, Boss Status, Castle Sieges)
 
@@ -41,7 +40,8 @@ Credits for original design [Atualstudio](https://atual.studio/)
 
 - Administrator Panel<br/>
 - User Panel<br/>
-- Donate system with real time delivery items
+- Donate system
+- Mercadopago integration
 
 ## 🤔 How to use
 
