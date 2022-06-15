@@ -34,14 +34,13 @@ Credits for original design [Atualstudio](https://atual.studio/)
 - Login<br/>
 - Change password and change e-mail funcionalities (Login required)<br/>
 - Account recovery with e-mail sending<br/>
-- Ranking system (Best Clans, Players with most kills, Boss Status, Castle Sieges)
+- Ranking system (Best Clans, Players with most kills, Boss Status, Castle Sieges)<br/>
+- Server Status (Number of players online)
 
 ## 👨🏽‍💻 Features in development
 
-- Administrator Panel<br/>
-- User Panel<br/>
-- Donate system
-- Mercadopago integration
+- User Panel with donate system<br/>
+- Mercado Pago integration
 
 ## 🤔 How to use
 
