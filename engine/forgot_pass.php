@@ -19,21 +19,23 @@ if(isset($_POST['email'])) {
         exit; 
     } else {
         $email = validate($_POST['email']);
+
+        $sql_code = "SELECT * FROM accounts WHERE email = '$email'";
+        $sql_exec = $mysqli->query($sql_code) or die($mysqli->error);
+
+        if(mysqli_num_rows($sql_exec) > 0) {
+            $fetch = $sql_exec->fetch_assoc();
+            $key = sha1($fetch['password'], time());
+            sendEmail($email, $key);
+        } else {
+            $_SESSION['error'] = 'E-mail inválido!';
+            header("Location: ../?pages=forgot");
+            exit;
+        }
     }
 }
 
-if(!empty($email)) {
-    $sql_code = "SELECT * FROM accounts WHERE email = '$email' LIMIT 1";
-    $sql_exec = $mysqli->query($sql_code) or die($mysqli->error);
-
-    if(mysqli_num_rows($sql_exec) > 0) {
-        $fetch = $sql_exec->fetch_assoc();
-        $key = sha1($fetch['password'], time());
-        sendEmail($mysqli, $email, $key);
-    }
-}
-
-function sendEmail($mysqli, $email, $key) {
+function sendEmail($email, $key) {
     $destination = $email;
     $subject = "L2 Ketra | Redefinição de Senha";
     $headers = "MIME-Version: 1.0\r\n";
@@ -107,11 +109,11 @@ function sendEmail($mysqli, $email, $key) {
         $message .= "</head></html>";
 
         if(mail($destination, $subject, $message, $headers)){ 
-            $_SESSION['success'] = "Enviamos um e-mail pra $email";
+            $_SESSION['success'] = "Enviamos um e-mail para $email";
             header("Location: ../?pages=forgot");
             exit;            
         } else {
-            $_SESSION['error'] = $email;
+            $_SESSION['error'] = 'Este campo é obrigatório!';
             header("Location: ../?pages=forgot");
             exit; 
         }
