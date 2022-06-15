@@ -25,23 +25,22 @@ Credits for original design [Atualstudio](https://atual.studio/)
 - [PHP](https://www.php.net/)
 - [SASS](https://sass-lang.com/)
 - [JavaScript](https://www.javascript.com/)
-- [MySQL](https://www.mysql.com/)
-- [XAMPP](https://www.apachefriends.org/pt_br/index.html)
+- [MySQL Database](https://www.mysql.com/)
+- [XAMPP Server](https://www.apachefriends.org/pt_br/index.html)
 
 ## ✨ Features
 
-- Register<br/>
+- Register new account<br/>
 - Login<br/>
-- Required login for some restrict pages<br/>
-- Change password and change e-mail funcionalities<br/>
-- Recover password with PHP MAILER<br/>
-- Ranking system (Best Clans, Players with most kills, Boss Status, Castle Sieges)
+- Change password and change e-mail funcionalities (Login required)<br/>
+- Account recovery with e-mail sending<br/>
+- Ranking system (Best Clans, Players with most kills, Boss Status, Castle Sieges)<br/>
+- Server Status (Number of players online)
 
 ## 👨🏽‍💻 Features in development
 
-- Administrator Panel<br/>
-- User Panel<br/>
-- Donate system with real time delivery items
+- User Panel with donate system<br/>
+- Mercado Pago integration
 
 ## 🤔 How to use
 
