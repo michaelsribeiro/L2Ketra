@@ -26,7 +26,7 @@ Credits for original design [Atualstudio](https://atual.studio/)
 - [SASS](https://sass-lang.com/)
 - [JavaScript](https://www.javascript.com/)
 - [MySQL Database](https://www.mysql.com/)
-- [XAMPP](https://www.apachefriends.org/pt_br/index.html)
+- [XAMPP Server](https://www.apachefriends.org/pt_br/index.html)
 
 ## ✨ Features
 
