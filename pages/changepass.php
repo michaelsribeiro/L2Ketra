@@ -15,9 +15,9 @@
         <span class="msg-reg danger">To change password, login is required.</span>
         <div class="dual-column">
             <?php
-               if($_SESSION['error']){
-                echo '<span class="msg-reg danger">'.$_SESSION['error'].'</span>';
-                $_SESSION['error'] = '';
+                if($_SESSION['error']){
+                    echo '<span class="msg-reg danger">'.$_SESSION['error'].'</span>';
+                    $_SESSION['error'] = '';
             } 
             ?>
             <label class="formpadrao">

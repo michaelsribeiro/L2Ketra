@@ -17,10 +17,10 @@
         <div class="dual-column">
             <?php
                 if($_SESSION['error']){
-                    echo '<span class="msg danger">'.$_SESSION['error'].'</span>';
+                    echo '<span class="msg-reg danger">'.$_SESSION['error'].'</span>';
                     $_SESSION['error'] = '';
                 } else if($_SESSION['success']){
-                    echo '<span class="msg success">'.$_SESSION['success'].'</span>';
+                    echo '<span class="msg-reg success">'.$_SESSION['success'].'</span>';
                     $_SESSION['success'] = '';
                 }
             ?>
@@ -33,7 +33,7 @@
                 </div>
             </label>
         </div>
-        <input type="submit" class="btn-default" value="Recover" name="recover">
+        <input type="submit" class="btn-default" value="Recover">
     </form>  
 </div>
 

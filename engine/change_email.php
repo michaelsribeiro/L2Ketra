@@ -4,9 +4,9 @@ session_start();
 require_once "db_connect.php";
 
 function validate($data) {
-    trim($data);
-    stripslashes($data);
-    htmlspecialchars($data);
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
     return $data;
 }
 
