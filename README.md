@@ -33,7 +33,7 @@ Credits for original design [Atualstudio](https://atual.studio/)
 - Register new account<br/>
 - Login<br/>
 - Change password and change e-mail funcionalities (Login required)<br/>
-- Recover password with PHP MAILER<br/>
+- Account recovery with e-mail sending<br/>
 - Ranking system (Best Clans, Players with most kills, Boss Status, Castle Sieges)
 
 ## 👨🏽‍💻 Features in development
