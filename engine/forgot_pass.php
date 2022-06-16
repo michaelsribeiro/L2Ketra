@@ -50,7 +50,7 @@ function sendEmail($email, $key) {
         $mail->SMTPAuth   = true;                  
         $mail->Username   = '29edea731b2f948c';                    
         $mail->Password   = 'gD1fsSPFXdnHLjPLZea2KEhF';                             
-        $mail->SMTPSecure = 'tls';
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->SMTPAutoTLS = true;           
         $mail->Port       = 587;
 
