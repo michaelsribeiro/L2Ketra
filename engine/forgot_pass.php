@@ -39,34 +39,26 @@ if(isset($_POST['email'])) {
 }
 
 function sendEmail($email, $key) {
+    $from = 'michael-abd@live.com';
+    $to = $email;
+    $subject = 'L2 Ketra | Redefinição de Senha';
+    $message = 'Email de teste';
+    $headers = 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
+    $headers .= 'From: exemplo@exemplo.com' . "\r\n";
+    $headers .= 'Reply-To: exemplo@exemplo.com' . "\r\n";    
+    'X-Mailer: PHP/' . phpversion();
 
     require '../vendor/autoload.php';
 
-    $mail = new PHPMailer(true);
-
-    try {
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER;                     
-        $mail->isSMTP();                                          
-        $mail->Host       = 'smtp.sendgrid.net';                     
-        $mail->SMTPAuth   = true;                                  
-        $mail->Username   = 'apikey';                    
-        $mail->Password   = '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';                          
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port       = 587;
-
-        $mail->setFrom('michael-abd@live.com', 'Administrador');
-        //$mail->addAddress( $email, 'Joe User');     //Add a recipient
-        $mail->addAddress($email);
-
-        $mail->isHTML(true);                                  //Set email format to HTML
-        $mail->Subject = 'Primeiro E-mail de recuperação';
-        $mail->Body    = 'Email de teste!';
-
-        $mail->send();
-
-        echo 'Message has been sent';
-    } catch (Exception $e) {
-        echo 'Message has not sent';
+    if ($send){
+        $_SESSION['success'] = "Enviamos um e-mail para $email";
+        header("Location: ../?pages=forgot");
+        exit;  
+    } else {
+        $_SESSION['error'] = "Este campo é obrigatório";
+        header("Location: ../?pages=forgot");
+        exit;
     }
 }
 ?>
