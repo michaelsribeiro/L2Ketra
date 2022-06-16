@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 require_once "db_connect.php";
 
 function validate($data){
@@ -35,54 +39,34 @@ if(isset($_POST['email'])) {
 }
 
 function sendEmail($email, $key) {
-    /*$from = 'michael-abd@live.com';
-    $to = $email;
-    $subject = 'L2 Ketra | Redefinição de Senha';
-    $message = 'Email de teste';
-    $headers = 'MIME-Version: 1.0' . "\r\n";
-    $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
-    $headers .= 'From: exemplo@exemplo.com' . "\r\n";
-    $headers .= 'Reply-To: exemplo@exemplo.com' . "\r\n";    
-    'X-Mailer: PHP/' . phpversion();
 
-    $send = mail($to, $subject, $message, $headers);
+    require '../vendor/autoload.php';
 
-    if ($send){
-        $_SESSION['success'] = "Enviamos um e-mail para $email";
-        header("Location: ../?pages=forgot");
-        exit;  
-    } else {
-        $_SESSION['error'] = "Este campo é obrigatório";
-        header("Location: ../?pages=forgot");
-        exit;
-    }*/
+    $mail = new PHPMailer(true);
 
-    $curl = curl_init();
-    curl_setopt_array($curl, array(
-        CURLOPT_URL => $_ENV['l2-ketra.herokuapp.com'] . "/api/i/v1/email",
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => "",
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 0,
-        CURLOPT_FOLLOWLOCATION => true,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => "POST",
-        CURLOPT_POSTFIELDS =>"{\"recipients\":[{\"email\":\"contato@lojaphoneshop.com.br\"}],\"title\":\"Title\",\"html\":\"Body\"}",
-        CURLOPT_HTTPHEADER => array(
-            "x-trustifi-key: " . $_ENV['fff7f662051f68935dbf6fed0c4d45189460f5c49ec0ba18'],
-            "x-trustifi-secret: " . $_ENV['0a3bd21e016f6d1b3fd6961f949534f4'],
-            "content-type: application/json"
-        )
-    ));
+    try {
+        $mail->SMTPDebug = SMTP::DEBUG_SERVER;                     
+        $mail->isSMTP();                                          
+        $mail->Host       = 'smtp.sendgrid.net';                     
+        $mail->SMTPAuth   = true;                                  
+        $mail->Username   = 'apikey';                    
+        $mail->Password   = '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';                          
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = 587;
 
-    $response = curl_exec($curl);
-    $err = curl_error($curl);
-    curl_close($curl);
-    if ($err) {
-        echo "cURL Error #:" . $err;
-    } else {
-        echo $response;
+        $mail->setFrom('michael-abd@live.com', 'Administrador');
+        //$mail->addAddress( $email, 'Joe User');     //Add a recipient
+        $mail->addAddress($email);
+
+        $mail->isHTML(true);                                  //Set email format to HTML
+        $mail->Subject = 'Primeiro E-mail de recuperação';
+        $mail->Body    = 'Email de teste!';
+
+        $mail->send();
+
+        echo 'Message has been sent';
+    } catch (Exception $e) {
+        echo 'Message has not sent';
     }
-
 }
 ?>
