@@ -39,24 +39,36 @@ if(isset($_POST['email'])) {
 }
 
 function sendEmail($email, $key) {
-    $from = 'michael-abd@live.com';
-    $to = $email;
-    $subject = 'L2 Ketra | Redefinição de Senha';
-    $message = 'Email de teste';
-    $headers = 'MIME-Version: 1.0' . "\r\n";
-    $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
-    $headers .= 'From: exemplo@exemplo.com' . "\r\n";
-    $headers .= 'Reply-To: exemplo@exemplo.com' . "\r\n";    
-    'X-Mailer: PHP/' . phpversion();
-
     require '../vendor/autoload.php';
 
-    if ($send){
-        $_SESSION['success'] = "Enviamos um e-mail para $email";
+    $mail = new PHPMailer(true);
+
+    try {
+        //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      
+        $mail->isSMTP();                                            
+        $mail->Host       = 'smtp.cloudmta.net';                     
+        $mail->SMTPAuth   = true;                  
+        $mail->Username   = '29edea731b2f948c';                    
+        $mail->Password   = 'gD1fsSPFXdnHLjPLZea2KEhF';                             
+        $mail->SMTPSecure = 'tls';
+        $mail->SMTPAutoTLS = true;           
+        $mail->Port       = 587;
+
+        $mail->setFrom('m.ribeiroabd@gmail.com', 'Admin');    
+        $mail->addAddress($email); 
+
+        $mail->isHTML(true);                                
+        $mail->Subject = 'Here is the subject';
+        $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+        $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+        $mail->send();
+
+        $_SESSION['success'] = "Enviamos um e-mail para $email!";
         header("Location: ../?pages=forgot");
-        exit;  
-    } else {
-        $_SESSION['error'] = "Este campo é obrigatório";
+        exit;
+    } catch(Exceprion $e) {
+        $_SESSION['error'] = 'E-mail inválido!';
         header("Location: ../?pages=forgot");
         exit;
     }
