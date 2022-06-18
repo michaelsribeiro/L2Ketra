@@ -99,7 +99,7 @@ function sendEmail($email, $key) {
                                                                     password has been generated for you. To reset your password, click the
                                                                     following link and follow the instructions.
                                                                 </p>
-                                                                <a href="'.$link.'" style="background:#20e277; text-decoration:none !important; font-weight:500; margin-top:35px; color:#fff;text-transform:uppercase; font-size:14px; padding:10px 24px; display:inline-block; border-radius:50px;">Reset Password</a>
+                                                                <button type="button" href="https://l2-ketra.herokuapp.com/?pages=recoveracc&code='.$key.'" style="background:#20e277; text-decoration:none !important; font-weight:500; margin-top:35px; color:#fff;text-transform:uppercase; font-size:14px; padding:10px 24px; display:inline-block; border-radius:50px;">Reset Password</button>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -112,7 +112,7 @@ function sendEmail($email, $key) {
                                             </tr>
                                             <tr>
                                                 <td style="text-align:center;">
-                                                    <p style="font-size:14px; color:rgba(69, 80, 86, 0.7411764705882353); line-height:18px; margin:0 0 0;">&copy; <strong>www.l2-ketra.herokuapp.com</strong></p>
+                                                    <p style="font-size:14px; color:#333; line-height:18px; margin:0 0 0;">&copy; <strong>L2 Ketra</strong></p>
                                                 </td>
                                             </tr>
                                             <tr>
