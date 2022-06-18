@@ -54,11 +54,11 @@ function sendEmail($email, $key) {
         $mail->SMTPAutoTLS = true;           
         $mail->Port       = 587;
 
-        $mail->setFrom('m.ribeiroabd@gmail.com', 'L2Ketra');    
+        $mail->setFrom('contato@lojaphoneshop.com.br', 'L2Ketra');    
         $mail->addAddress($email); 
 
         $mail->isHTML(true);                                
-        $mail->Subject = 'Here is the subject';
+        $mail->Subject = 'Recover Account | L2 Ketra';
         $mail->Body    = '<html>
                             <body marginheight="0" topmargin="0" marginwidth="0" style="margin: 0px; background-color: #f2f3f8;" leftmargin="0">
                             <!--100% body table-->
@@ -99,7 +99,7 @@ function sendEmail($email, $key) {
                                                                     password has been generated for you. To reset your password, click the
                                                                     following link and follow the instructions.
                                                                 </p>
-                                                                <button type="button" href="https://l2-ketra.herokuapp.com/?pages=recoveracc&code='.$key.'" style="background:#20e277; text-decoration:none !important; font-weight:500; margin-top:35px; color:#fff;text-transform:uppercase; font-size:14px; padding:10px 24px; display:inline-block; border-radius:50px;">Reset Password</button>
+                                                                <a href="https://l2-ketra.herokuapp.com/?pages=recoveracc&code='.$key.'" style="background:#20e277; text-decoration:none !important; font-weight:500; margin-top:35px; color:#fff;text-transform:uppercase; font-size:14px; padding:10px 24px; display:inline-block; border-radius:50px;">Reset Password</a>
                                                             </td>
                                                         </tr>
                                                         <tr>
