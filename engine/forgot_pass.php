@@ -75,7 +75,7 @@ function sendEmail($email, $key) {
                                             <tr>
                                                 <td style="text-align:center;">
                                                 <a href="https://l2-ketra.herokuapp.com/" title="logo" target="_blank">
-                                                    <img width="60" src="https://i.ibb.co/7NK6MCn/logo-Ketra.png" alt="L2 Ketra">
+                                                    <img width="180" src="https://i.ibb.co/7NK6MCn/logo-Ketra.png" alt="L2 Ketra">
                                                 </a>
                                                 </td>
                                             </tr>
