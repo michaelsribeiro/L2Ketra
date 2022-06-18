@@ -27,13 +27,14 @@ Credits for original design [Atualstudio](https://atual.studio/)
 - [JavaScript](https://www.javascript.com/)
 - [MySQL Database](https://www.mysql.com/)
 - [XAMPP Server](https://www.apachefriends.org/pt_br/index.html)
+- [Heroku Deploy](https://www.heroku.com/)
 
 ## ✨ Features
 
 - Register new account<br/>
 - Login<br/>
 - Change password and change e-mail funcionalities (Login required)<br/>
-- Account recovery with e-mail sending<br/>
+- Account recovery<br/>
 - Ranking system (Best Clans, Players with most kills, Boss Status, Castle Sieges)<br/>
 - Server Status (Number of players online)
 
