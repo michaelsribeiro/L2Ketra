@@ -27,7 +27,7 @@ Credits for original design [Atualstudio](https://atual.studio/)
 - [JavaScript](https://www.javascript.com/)
 - [MySQL Database](https://www.mysql.com/)
 - [XAMPP Server](https://www.apachefriends.org/pt_br/index.html)
-- [Heroku Deploy](https://www.heroku.com/)
+- [Heroku](https://www.heroku.com/)
 
 ## ✨ Features
 
