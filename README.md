@@ -38,7 +38,7 @@ Credits for original design [Atualstudio](https://atual.studio/)
 - Account recovery<br/>
 - Ranking system (Best Clans, Players with most kills, Boss Status, Castle Sieges)<br/>
 - Server Status (Number of players online)
-- Send e-mails with lib PHPMailer
+- Send e-mails with lib PHPMailer and SendGrid SMTP service
 
 ## 👨🏽‍💻 Features in development
 
