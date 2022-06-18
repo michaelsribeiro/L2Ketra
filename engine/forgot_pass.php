@@ -29,6 +29,7 @@ if(isset($_POST['email'])) {
             $fetch = $sql_exec->fetch_assoc();
             $key = sha1($fetch['password'], time());
             $email = $fetch['email'];
+            $_SESSION['account'] = $fetch['login'];
             sendEmail($email, $key);
         } else {
             $_SESSION['error'] = 'E-mail inválido!';
@@ -58,7 +59,7 @@ function sendEmail($email, $key) {
         $mail->addAddress($email); 
 
         $mail->isHTML(true);                                
-        $mail->Subject = 'Recover Account | L2 Ketra';
+        $mail->Subject = 'Recover your Account | L2 Ketra';
         $mail->Body    = '<html>
                             <body marginheight="0" topmargin="0" marginwidth="0" style="margin: 0px; background-color: #f2f3f8;" leftmargin="0">
                             <!--100% body table-->
