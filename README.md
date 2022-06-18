@@ -28,6 +28,7 @@ Credits for original design [Atualstudio](https://atual.studio/)
 - [MySQL Database](https://www.mysql.com/)
 - [XAMPP Server](https://www.apachefriends.org/pt_br/index.html)
 - [Heroku](https://www.heroku.com/)
+- [SendGrid](https://sendgrid.com/)
 
 ## ✨ Features
 
@@ -37,6 +38,7 @@ Credits for original design [Atualstudio](https://atual.studio/)
 - Account recovery<br/>
 - Ranking system (Best Clans, Players with most kills, Boss Status, Castle Sieges)<br/>
 - Server Status (Number of players online)
+- Send e-mails with lib PHPMailer
 
 ## 👨🏽‍💻 Features in development
 
