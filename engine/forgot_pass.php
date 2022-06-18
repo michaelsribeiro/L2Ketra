@@ -46,10 +46,10 @@ function sendEmail($email, $key) {
     try {
         //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      
         $mail->isSMTP();                                            
-        $mail->Host       = 'smtp.cloudmta.net';                     
+        $mail->Host       = 'smtp.sendgrid.net';                     
         $mail->SMTPAuth   = true;                  
-        $mail->Username   = '29edea731b2f948c';                    
-        $mail->Password   = 'gD1fsSPFXdnHLjPLZea2KEhF';                             
+        $mail->Username   = 'apikey';                    
+        $mail->Password   = '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';                             
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->SMTPAutoTLS = true;           
         $mail->Port       = 587;
