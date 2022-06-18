@@ -69,12 +69,18 @@ function sendEmail($email, $key) {
                                     <td>
                                         <table style="background-color: #f2f3f8; max-width:670px;  margin:0 auto;" width="100%" border="0"
                                             align="center" cellpadding="0" cellspacing="0">
-                                            <tr style="margin: 80px 0 20px 0;">
+                                            <tr>
+                                                <td style="height:80px;">&nbsp;</td>
+                                            </tr>
+                                            <tr>
                                                 <td style="text-align:center;">
                                                     <a href="https://l2-ketra.herokuapp.com/" title="logo" target="_blank">
                                                         <img width="220" src="https://i.ibb.co/7NK6MCn/logo-Ketra.png" alt="L2 Ketra">
                                                     </a>
                                                 </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="height:20px;">&nbsp;</td>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -84,11 +90,11 @@ function sendEmail($email, $key) {
                                                             <td style="height:40px;">&nbsp;</td>
                                                         </tr>
                                                         <tr>
-                                                            <td style="padding:0 35px;">
+                                                            <td style="padding:0 25px;">
                                                                 <h1 style="color:#1e1e2d; font-weight:500; margin:0;font-size:32px;font-family:"Rubik",sans-serif;">You have
                                                                     requested to reset your password</h1>
                                                                 <span
-                                                                    style="display:inline-block; vertical-align:middle; margin:29px 0 26px; border-bottom:1px solid #cecece; width:100px;"></span>
+                                                                    style="display:inline-block; vertical-align:middle; margin:26px 0; border-bottom:1px solid #cecece; width:100px;"></span>
                                                                 <p style="color:#455056; font-size:15px;line-height:24px; margin:0;">
                                                                     We cannot simply send you your old password. A unique link to reset your
                                                                     password has been generated for you. To reset your password, click the
