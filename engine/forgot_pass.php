@@ -27,7 +27,7 @@ if(isset($_POST['email'])) {
 
         if(mysqli_num_rows($sql_exec) > 0) {
             $fetch = $sql_exec->fetch_assoc();
-            $key = sha1($fetch['password'], time());
+            $key = md5(uniqid($fetch['password'], time()));
             $email = $fetch['email'];
             $_SESSION['account'] = $fetch['login'];
             sendEmail($email, $key);
@@ -70,17 +70,11 @@ function sendEmail($email, $key) {
                                         <table style="background-color: #f2f3f8; max-width:670px;  margin:0 auto;" width="100%" border="0"
                                             align="center" cellpadding="0" cellspacing="0">
                                             <tr>
-                                                <td style="height:80px;">&nbsp;</td>
-                                            </tr>
-                                            <tr>
                                                 <td style="text-align:center;">
-                                                <a href="https://l2-ketra.herokuapp.com/" title="logo" target="_blank">
-                                                    <img width="180" src="https://i.ibb.co/7NK6MCn/logo-Ketra.png" alt="L2 Ketra">
-                                                </a>
+                                                    <a href="https://l2-ketra.herokuapp.com/" title="logo" target="_blank">
+                                                        <img width="220" src="https://i.ibb.co/7NK6MCn/logo-Ketra.png" alt="L2 Ketra">
+                                                    </a>
                                                 </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="height:20px;">&nbsp;</td>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -100,7 +94,7 @@ function sendEmail($email, $key) {
                                                                     password has been generated for you. To reset your password, click the
                                                                     following link and follow the instructions.
                                                                 </p>
-                                                                <a href="https://l2-ketra.herokuapp.com/?pages=recoveracc&code='.$key.'" style="background:#20e277; text-decoration:none !important; font-weight:500; margin-top:35px; color:#fff;text-transform:uppercase; font-size:14px; padding:10px 24px; display:inline-block; border-radius:50px;">Reset Password</a>
+                                                                <a href="https://l2-ketra.herokuapp.com/?pages=recoveracc&code={$key}" style="background:#20e277; text-decoration:none !important; font-weight:500; margin-top:35px; color:#fff;text-transform:uppercase; font-size:14px; padding:10px 24px; display:inline-block; border-radius:50px;">Reset Password</a>
                                                             </td>
                                                         </tr>
                                                         <tr>
