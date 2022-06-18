@@ -54,12 +54,13 @@ function sendEmail($email, $key) {
         $mail->SMTPAutoTLS = true;           
         $mail->Port       = 587;
 
-        $mail->setFrom('m.ribeiroabd@gmail.com', 'Admin');    
+        $mail->setFrom('m.ribeiroabd@gmail.com', 'L2Ketra');    
         $mail->addAddress($email); 
 
         $mail->isHTML(true);                                
         $mail->Subject = 'Here is the subject';
-        $mail->Body    = '<body marginheight="0" topmargin="0" marginwidth="0" style="margin: 0px; background-color: #f2f3f8;" leftmargin="0">
+        $mail->Body    = '<html>
+                            <body marginheight="0" topmargin="0" marginwidth="0" style="margin: 0px; background-color: #f2f3f8;" leftmargin="0">
                             <!--100% body table-->
                             <table cellspacing="0" border="0" cellpadding="0" width="100%" bgcolor="#f2f3f8"
                                 style="@import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Open+Sans:300,400,600,700); font-family: "Open Sans", sans-serif;">
@@ -98,9 +99,7 @@ function sendEmail($email, $key) {
                                                                     password has been generated for you. To reset your password, click the
                                                                     following link and follow the instructions.
                                                                 </p>
-                                                                <a href="javascript:void(0);"
-                                                                    style="background:#20e277;text-decoration:none !important; font-weight:500; margin-top:35px; color:#fff;text-transform:uppercase; font-size:14px;padding:10px 24px;display:inline-block;border-radius:50px;">Reset
-                                                                    Password</a>
+                                                                <a href="'.$link.'" style="background:#20e277; text-decoration:none !important; font-weight:500; margin-top:35px; color:#fff;text-transform:uppercase; font-size:14px; padding:10px 24px; display:inline-block; border-radius:50px;">Reset Password</a>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -113,7 +112,7 @@ function sendEmail($email, $key) {
                                             </tr>
                                             <tr>
                                                 <td style="text-align:center;">
-                                                    <p style="font-size:14px; color:rgba(69, 80, 86, 0.7411764705882353); line-height:18px; margin:0 0 0;">&copy; <strong>www.rakeshmandal.com</strong></p>
+                                                    <p style="font-size:14px; color:rgba(69, 80, 86, 0.7411764705882353); line-height:18px; margin:0 0 0;">&copy; <strong>www.l2-ketra.herokuapp.com</strong></p>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -124,7 +123,8 @@ function sendEmail($email, $key) {
                                 </tr>
                             </table>
                             <!--/100% body table-->
-                        </body>';
+                        </body>
+                        </html>';
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
         $mail->send();
