@@ -15,9 +15,8 @@
  
 <h3>Lineage 2 Ketra Website</h3>
 
-This website is a clone of the page [Lineage 2 Ketra](https://l2ketra.com/), made with the aim of studying the PHP language.<br/>
-In this project, the scripts were developed by myself.<br/>
-Credits for original design [Atualstudio](https://atual.studio/)
+This project was made with the objective of improving the base of the language PHP.<br/>
+The design was cloned from [L2Ketra.com](https://l2ketra.com) and the credits go to Atualstudio.
 
 
 ## 🚀 Technologies 
