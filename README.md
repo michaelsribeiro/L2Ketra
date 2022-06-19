@@ -15,9 +15,10 @@
  
 <h3>Lineage 2 Ketra Website</h3>
 
-This website is a clone of the page [Lineage 2 Ketra](https://l2ketra.com/), made with the aim of studying the PHP language.<br/>
-In this project, the scripts were developed by myself.<br/>
-Credits for original design [Atualstudio](https://atual.studio/)
+This project was made with the objective of improving the base of the language PHP, <br/>
+allowing the user to register a new account and use that account within the game, <br/>
+log into the system, view the ranking of the best players, recover account and much more..<br/>
+The design was cloned from [L2Ketra.com](https://l2ketra.com) and the credits go to Atualstudio.
 
 
 ## 🚀 Technologies 
@@ -27,15 +28,18 @@ Credits for original design [Atualstudio](https://atual.studio/)
 - [JavaScript](https://www.javascript.com/)
 - [MySQL Database](https://www.mysql.com/)
 - [XAMPP Server](https://www.apachefriends.org/pt_br/index.html)
+- [Heroku](https://www.heroku.com/)
+- [SendGrid](https://sendgrid.com/)
 
 ## ✨ Features
 
 - Register new account<br/>
 - Login<br/>
 - Change password and change e-mail funcionalities (Login required)<br/>
-- Account recovery with e-mail sending<br/>
+- Account recovery<br/>
 - Ranking system (Best Clans, Players with most kills, Boss Status, Castle Sieges)<br/>
 - Server Status (Number of players online)
+- Send e-mails with lib PHPMailer and SendGrid SMTP service
 
 ## 👨🏽‍💻 Features in development
 
