@@ -59,65 +59,70 @@ function sendEmail($email, $key) {
         $mail->addAddress($email); 
 
         $mail->isHTML(true);                                
-        $mail->Subject = 'Recover your Account | L2 Ketra';
-        $mail->Body    = '<html>
-                            <body marginheight="0" topmargin="0" marginwidth="0" style="margin: 0px; background-color: #f2f3f8;" leftmargin="0">
+        $mail->Subject = "Recover your Account";
+        $mail->Body    = "<html>
+                            <body marginheight='0' topmargin='0' marginwidth='0' style='margin: 0px; background-color: #f2f3f8;' leftmargin='0'>
                             <!--100% body table-->
-                            <table cellspacing="0" border="0" cellpadding="0" width="100%" bgcolor="#f2f3f8"
-                                style="@import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Open+Sans:300,400,600,700); font-family: "Open Sans", sans-serif;">
+                            <table cellspacing='0' border='0' cellpadding='0' width='100%' bgcolor='#f2f3f8'
+                                style='@import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Open+Sans:300,400,600,700); 
+                                    font-family: 'Open Sans', sans-serif;'>
                                 <tr>
                                     <td>
-                                        <table style="background-color: #f2f3f8; max-width:670px;  margin:0 auto;" width="100%" border="0"
-                                            align="center" cellpadding="0" cellspacing="0">
+                                        <table style='background-color: #f2f3f8; max-width:670px;  margin:0 auto;' width='100%' border='0'
+                                            align='center' cellpadding='0' cellspacing='0'>
                                             <tr>
-                                                <td style="height:80px;">&nbsp;</td>
+                                                <td style='height:80px;'>&nbsp;</td>
                                             </tr>
                                             <tr>
-                                                <td style="text-align:center;">
-                                                    <a href="https://l2-ketra.herokuapp.com/" title="logo" target="_blank">
-                                                        <img width="220" src="https://i.ibb.co/7NK6MCn/logo-Ketra.png" alt="L2 Ketra">
+                                                <td style='text-align:center;'>
+                                                    <a href='https://l2-ketra.herokuapp.com/' title='logo' target='_blank'>
+                                                        <img width='260' src='https://i.ibb.co/7NK6MCn/logo-Ketra.png' alt='L2 Ketra'>
                                                     </a>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td style="height:20px;">&nbsp;</td>
+                                                <td style='height:20px;'>&nbsp;</td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0"
-                                                        style="max-width:670px;background:#fff; border-radius:3px; text-align:center;-webkit-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);-moz-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);box-shadow:0 6px 18px 0 rgba(0,0,0,.06);">
+                                                    <table width='95%' border='0' align='center' cellpadding='0' cellspacing='0'
+                                                        style='max-width:670px;background:#fff; border-radius:3px; text-align:center;
+                                                            -webkit-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);-moz-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);
+                                                            box-shadow:0 6px 18px 0 rgba(0,0,0,.06);'>
                                                         <tr>
-                                                            <td style="height:40px;">&nbsp;</td>
+                                                            <td style='height:40px;'>&nbsp;</td>
                                                         </tr>
                                                         <tr>
-                                                            <td style="padding:0 25px;">
-                                                                <h1 style="color:#1e1e2d; font-weight:500; margin:0;font-size:32px;font-family:"Rubik",sans-serif;">You have
+                                                            <td style='padding:0 25px;'>
+                                                                <h1 style='color:#1e1e2d; font-weight:500; margin:0;font-size:32px;font-family:'Rubik',sans-serif;'>You have
                                                                     requested to reset your password</h1>
                                                                 <span
-                                                                    style="display:inline-block; vertical-align:middle; margin:26px 0; border-bottom:1px solid #cecece; width:100px;"></span>
-                                                                <p style="color:#455056; font-size:15px;line-height:24px; margin:0;">
+                                                                    style='display:inline-block; vertical-align:middle; margin:26px 0; border-bottom:1px solid #cecece; width:100px;'></span>
+                                                                <p style='color:#455056; font-size:15px;line-height:24px; margin:0;'>
                                                                     We cannot simply send you your old password. A unique link to reset your
                                                                     password has been generated for you. To reset your password, click the
                                                                     following link and follow the instructions.
                                                                 </p>
-                                                                <a href="https://l2-ketra.herokuapp.com/?pages=recoveracc&code='.$key.'" style="background:#20e277; text-decoration:none !important; font-weight:500; margin-top:35px; color:#fff;text-transform:uppercase; font-size:14px; padding:10px 24px; display:inline-block; border-radius:50px;">Reset Password</a>
+                                                                <a href='https://l2-ketra.herokuapp.com/?pages=recoveracc&code={$key}' style='background:#20e277; 
+                                                                    text-decoration:none !important; font-weight:500; margin-top:35px; color:#fff;text-transform:uppercase; 
+                                                                    font-size:14px; padding:10px 24px; display:inline-block; border-radius:50px;'>Reset Password</a>
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td style="height:40px;">&nbsp;</td>
+                                                            <td style='height:40px;'>&nbsp;</td>
                                                         </tr>
                                                     </table>
                                                 </td>
                                             <tr>
-                                                <td style="height:20px;">&nbsp;</td>
+                                                <td style='height:20px;'>&nbsp;</td>
                                             </tr>
                                             <tr>
-                                                <td style="text-align:center;">
-                                                    <p style="font-size:14px; color:#333; line-height:18px; margin:0 0 0;">&copy; <strong>L2 Ketra</strong></p>
+                                                <td style='text-align:center;'>
+                                                    <p style='font-size:14px; color:#333; line-height:18px; margin:0 0 0;'>&copy; <strong>L2 Ketra</strong></p>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td style="height:80px;">&nbsp;</td>
+                                                <td style='height:80px;'>&nbsp;</td>
                                             </tr>
                                         </table>
                                     </td>
@@ -125,16 +130,14 @@ function sendEmail($email, $key) {
                             </table>
                             <!--/100% body table-->
                         </body>
-                        </html>';
-        $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+                        </html>";
 
         $mail->send();
-
         $_SESSION['success'] = "Enviamos um e-mail para $email!";
         header("Location: ../?pages=forgot");
         exit;
-    } catch(Exceprion $e) {
-        $_SESSION['error'] = 'E-mail inválido!';
+    } catch(Exception $e) {
+        $_SESSION['error'] = "E-mail inválido!";
         header("Location: ../?pages=forgot");
         exit;
     }
