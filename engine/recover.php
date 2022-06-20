@@ -57,7 +57,7 @@ if(!empty($newpass) && !empty($confirm_newpass)) {
         exit;
 
         if($sql_exec) {
-            $sql_code1 = "UPDATE accounts SET keycode = '' WHERE email = '$email'";
+            $sql_code1 = "UPDATE accounts SET keycode = ' ' WHERE login = '$login'";
             $sql_exec1 = $mysqli->query($sql_code1) or die($mysqli->$error);
         }
     } else {
