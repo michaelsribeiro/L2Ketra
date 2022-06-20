@@ -1,6 +1,7 @@
+<?php $key = $_GET['code']; ?>
 <div class="account-manager">
     <h1>Recover Account</h1>   
-    <form action="engine/change_password.php" method="POST" class="registerForm">
+    <form action="engine/recover.php" method="POST" class="registerForm">
         <div class="dual-column">
             <?php
                 if($_SESSION['error']){
@@ -37,6 +38,7 @@
             </label>
         </div>
         <input type="submit" class="btn-default" value="Change Password">
+        <input type="hidden" value="<?=$key?>">
     </form>  
 </div>
 
