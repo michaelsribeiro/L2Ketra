@@ -52,11 +52,11 @@ if(!empty($newpass) && !empty($confirm_newpass)) {
         $sql_exec = $mysqli->query($sql_code) or die($mysqli->$error);
 
         $_SESSION['success'] = "Senha alterada com sucesso!";
-        header("Location: ../?pages=panel_changepass");
+        header("Location: ../?pages=recoveracc&code={$key}");
         exit;
     } else {
         $_SESSION['error'] = "Senha incorreta, tente novamente!";
-        header("Location: ../?pages=panel_changepass");
+        header("Location: ../?pages=recoveracc&code={$key}");
         exit;
     }
 }

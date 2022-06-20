@@ -31,6 +31,9 @@ if(isset($_POST['email'])) {
             $email = $fetch['email'];
             $_SESSION['account'] = $fetch['login'];
             sendEmail($email, $key);
+
+            $sql_code1 = "INSERT INTO accounts (keycode) VALUES('$key')";
+            $sql_exec = $mysqli->query($sql_code1) or die($mysqli->$error);
         } else {
             $_SESSION['error'] = 'E-mail inválido!';
             header("Location: ../?pages=forgot");
