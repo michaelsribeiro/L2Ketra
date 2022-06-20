@@ -29,22 +29,17 @@ if(isset($_POST['email'])) {
             $fetch = $sql_exec->fetch_assoc();
             $key = md5(uniqid($fetch['password'], time()));
             $_SESSION['account'] = $fetch['login'];  
-                       
-            includeHash($email, $key);  
             
-            sendEmail($email, $key);             
+            $sql_code1 = "UPDATE accounts SET keycode = '$key' WHERE email = '$email'";
+            $sql_exec1 = $mysqli->query($sql_code1) or die($mysqli->$error);
+            
+            sendEmail($email, $key);              
         } else {
             $_SESSION['error'] = 'E-mail inválido!';
             header("Location: ../?pages=forgot");
             exit;
         }
     }
-}
-
-function includeHash($email, $key, $mysqli) {
-    $sql_code1 = "UPDATE accounts SET keycode = '$key' WHERE email = '$email'";
-    $sql_exec1 = $mysqli->query($sql_code1) or die($mysqli->$error);
-
 }
 
 function sendEmail($email, $key) {

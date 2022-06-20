@@ -55,6 +55,11 @@ if(!empty($newpass) && !empty($confirm_newpass)) {
         $_SESSION['success'] = "Senha alterada com sucesso!";
         header("Location: ../?pages=recoveracc&code={$key}");
         exit;
+
+        if($sql_exec) {
+            $sql_code1 = "UPDATE accounts SET keycode = '' WHERE email = '$email'";
+            $sql_exec1 = $mysqli->query($sql_code1) or die($mysqli->$error);
+        }
     } else {
         $_SESSION['error'] = "Ocorreu um erro interno, tente novamente!";
         header("Location: ../?pages=recoveracc&code={$key}");
