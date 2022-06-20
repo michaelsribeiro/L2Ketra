@@ -10,7 +10,7 @@ function validate($data){
     return $data;
 }
 
-$key = $_POST['key'];
+$key = $_POST['code'];
 
 var_dump($_POST);
 
