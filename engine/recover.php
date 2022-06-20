@@ -49,17 +49,12 @@ if(!empty($newpass) && !empty($confirm_newpass)) {
 
     if($key_result['keycode'] == $key){
         $hashed_newpass = str_replace("$2y$", "$2a$", password_hash($newpass, PASSWORD_BCRYPT));
-        $sql_code = "UPDATE accounts SET password = '$hashed_newpass' WHERE keycode = '$key'";
+        $sql_code = "UPDATE accounts SET password = '$hashed_newpass', keycode = null WHERE login = '$login'";
         $sql_exec = $mysqli->query($sql_code) or die($mysqli->$error);
 
         $_SESSION['success'] = "Senha alterada com sucesso!";
         header("Location: ../?pages=recoveracc&code={$key}");
         exit;
-
-        if($sql_exec) {
-            $sql_code1 = "UPDATE accounts SET keycode = ' ' WHERE login = '$login'";
-            $sql_exec1 = $mysqli->query($sql_code1) or die($mysqli->$error);
-        }
     } else {
         $_SESSION['error'] = "Ocorreu um erro interno, tente novamente!";
         header("Location: ../?pages=recoveracc&code={$key}");
