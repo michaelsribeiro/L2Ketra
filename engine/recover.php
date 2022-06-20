@@ -11,6 +11,7 @@ function validate($data){
 }
 
 $key = $_POST['key'];
+$login = $_SESSION['account'];
 $newpass = '';
 $confirm_newpass = '';
 
@@ -42,11 +43,11 @@ if($newpass != $confirm_newpass) {
 
 if(!empty($newpass) && !empty($confirm_newpass)) {
 
-    $sql_code1 = "SELECT login, password, keycode FROM accounts WHERE keycode = '$key'";
+    $sql_code1 = "SELECT login, password, keycode FROM accounts WHERE login = '$login'";
     $sql_exec1 = $mysqli->query($sql_code1) or die($mysqli->$error);
-    $result = $sql_exec1->fetch_assoc();    
+    $key_result = $sql_exec1->fetch_assoc();    
 
-    if($result){
+    if($key_result['keycode'] == $key){
         $hashed_newpass = str_replace("$2y$", "$2a$", password_hash($newpass, PASSWORD_BCRYPT));
         $sql_code = "UPDATE accounts SET password = '$hashed_newpass' WHERE keycode = '$key'";
         $sql_exec = $mysqli->query($sql_code) or die($mysqli->$error);
@@ -55,7 +56,7 @@ if(!empty($newpass) && !empty($confirm_newpass)) {
         header("Location: ../?pages=recoveracc&code={$key}");
         exit;
     } else {
-        $_SESSION['error'] = "Senha incorreta, tente novamente!";
+        $_SESSION['error'] = "Ocorreu um erro interno, tente novamente!";
         header("Location: ../?pages=recoveracc&code={$key}");
         exit;
     }
