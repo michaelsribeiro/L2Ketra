@@ -28,7 +28,6 @@ if(isset($_POST['email'])) {
         if(mysqli_num_rows($sql_exec) > 0) {
             $fetch = $sql_exec->fetch_assoc();
             $key = md5(uniqid($fetch['password'], time()));
-            $email = $fetch['email'];
             $_SESSION['account'] = $fetch['login'];            
 
             $sql_code1 = "INSERT INTO accounts (keycode) VALUES('$key') WHERE email = '$email'";
