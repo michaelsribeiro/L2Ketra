@@ -28,11 +28,12 @@ if(isset($_POST['email'])) {
         if(mysqli_num_rows($sql_exec) > 0) {
             $fetch = $sql_exec->fetch_assoc();
             $key = md5(uniqid($fetch['password'], time()));
-            $_SESSION['account'] = $fetch['login'];   
+            $_SESSION['account'] = $fetch['login'];              
+            
+            includeHash($email, $key);
 
             sendEmail($email, $key);         
 
-            includeHash($email, $key);
             
         } else {
             $_SESSION['error'] = 'E-mail inválido!';
@@ -43,7 +44,7 @@ if(isset($_POST['email'])) {
 }
 
 function includeHash($email, $key, $mysqli) {
-    $sql_code = "INSERT INTO accounts (keycode) VALUES('$key') WHERE email = '$email'";
+    $sql_code = "UPDATE accounts SET keycode = '$key' WHERE email = '$email'";
     $sql_exec = $mysqli->query($sql_code) or die($mysqli->$error);
 
     $sql_exec->mysqli_affected_rows($mysqli) > 0 ? true : false;
