@@ -61,8 +61,4 @@ if(!empty($newpass) && !empty($confirm_newpass)) {
         exit;
     }
 }
-
-function updatePass($newpass, $login) {
-    
-}
 ?>

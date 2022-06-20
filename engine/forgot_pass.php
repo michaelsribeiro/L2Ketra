@@ -42,7 +42,7 @@ if(isset($_POST['email'])) {
     }
 }
 
-function includeHash($email, $key) {
+function includeHash($email, $key, $mysqli) {
     $sql_code = "INSERT INTO accounts (keycode) VALUES('$key') WHERE email = '$email'";
     $sql_exec = $mysqli->query($sql_code1) or die($mysqli->$error);
 
