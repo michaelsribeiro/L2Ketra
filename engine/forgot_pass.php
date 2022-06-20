@@ -44,7 +44,7 @@ function includeHash($email, $key, $mysqli) {
     $sql_code = "UPDATE accounts SET keycode = '$key' WHERE email = '$email'";
     $sql_exec = $mysqli->query($sql_code) or die($mysqli->$error);
 
-    mysqli_affected_rows($sql_exec) > 0 ? true : false;
+    mysqli_affected_rows($mysqli) > 0 ? true : false;
 }
 
 function sendEmail($email, $key) {
