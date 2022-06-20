@@ -29,12 +29,10 @@ if(isset($_POST['email'])) {
             $fetch = $sql_exec->fetch_assoc();
             $key = md5(uniqid($fetch['password'], time()));
             $_SESSION['account'] = $fetch['login'];  
+                       
+            includeHash($email, $key);  
             
-            $sql_code1 = "UPDATE accounts SET keycode = '$key' WHERE email = '$email'";
-            $sql_exec1 = $mysqli->query($sql_code1) or die($mysqli->$error);
-            
-            sendEmail($email, $key);              
-            //includeHash($email, $key);            
+            sendEmail($email, $key);             
         } else {
             $_SESSION['error'] = 'E-mail inválido!';
             header("Location: ../?pages=forgot");
@@ -43,12 +41,11 @@ if(isset($_POST['email'])) {
     }
 }
 
-/*function includeHash($email, $key, $mysqli) {
-    $sql_code = "UPDATE accounts SET keycode = '$key' WHERE email = '$email'";
-    $sql_exec = $mysqli->query($sql_code) or die($mysqli->$error);
+function includeHash($email, $key, $mysqli) {
+    $sql_code1 = "UPDATE accounts SET keycode = '$key' WHERE email = '$email'";
+    $sql_exec1 = $mysqli->query($sql_code1) or die($mysqli->$error);
 
-    mysqli_affected_rows($mysqli) > 0 ? true : false;
-}*/
+}
 
 function sendEmail($email, $key) {
     require '../vendor/autoload.php';
