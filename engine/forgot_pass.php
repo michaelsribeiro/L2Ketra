@@ -46,7 +46,7 @@ function includeHash($email, $key, $mysqli) {
     $sql_code = "INSERT INTO accounts (keycode) VALUES('$key') WHERE email = '$email'";
     $sql_exec = $mysqli->query($sql_code1) or die($mysqli->$error);
 
-    $sql_exec->affected_rows > 0 ? true : false;
+    $sql_exec->mysqli_affected_rows($mysqli) > 0 ? true : false;
 }
 
 function sendEmail($email, $key) {
