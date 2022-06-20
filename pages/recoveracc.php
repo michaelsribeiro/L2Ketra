@@ -1,4 +1,3 @@
-<?php $key = $_GET['code']; ?>
 <div class="account-manager">
     <h1>Recover Account</h1>   
     <form action="engine/recover.php" method="POST" class="registerForm">
@@ -11,7 +10,8 @@
                     echo '<span class="msg-reg success">'.$_SESSION['success'].'</span>';
                     $_SESSION['success'] = '';
                 }
-            ?>
+            ?>            
+            <input type="hidden" value="<?=$_GET['code']?>">
             <label class="formpadrao">
                 <div class="input-area">
                     <div class="desc">Login:</div>
@@ -38,7 +38,6 @@
             </label>
         </div>
         <input type="submit" class="btn-default" value="Change Password">
-        <input type="hidden" value="<?=$key?>">
     </form>  
 </div>
 
