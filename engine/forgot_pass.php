@@ -28,12 +28,13 @@ if(isset($_POST['email'])) {
         if(mysqli_num_rows($sql_exec) > 0) {
             $fetch = $sql_exec->fetch_assoc();
             $key = md5(uniqid($fetch['password'], time()));
-            $_SESSION['account'] = $fetch['login'];            
+            $_SESSION['account'] = $fetch['login'];   
+            
+            sendEmail($email, $key);         
 
             $sql_code1 = "INSERT INTO accounts (keycode) VALUES('$key') WHERE email = '$email'";
             $sql_exec1 = $mysqli->query($sql_code1) or die($mysqli->$error);
             
-            sendEmail($email, $key);
         } else {
             $_SESSION['error'] = 'E-mail inválido!';
             header("Location: ../?pages=forgot");
