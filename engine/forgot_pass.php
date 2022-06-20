@@ -32,9 +32,9 @@ if(isset($_POST['email'])) {
             $_SESSION['account'] = $fetch['login'];            
 
             $sql_code1 = "INSERT INTO accounts (keycode) VALUES('$key')";
-            $sql_exec = $mysqli->query($sql_code1) or die($mysqli->$error);
+            $sql_exec1 = $mysqli->query($sql_code1) or die($mysqli->$error);
             
-            mysqli_affected_rows($sql_exec) > 0 ?? sendEmail($email, $key);
+            if (mysqli_affected_rows($sql_exec1) > 0) {sendEmail($email, $key);}
         } else {
             $_SESSION['error'] = 'E-mail inválido!';
             header("Location: ../?pages=forgot");
