@@ -50,13 +50,13 @@ function sendEmail($email, $key) {
     try {
         //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      
         $mail->isSMTP();                                            
-        $mail->Host       = 'smtp.sendgrid.net';                     
+        $mail->Host       = 'smtp.server.net';                     
         $mail->SMTPAuth   = true;                  
-        $mail->Username   = 'apikey';                    
-        $mail->Password   = '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';                             
+        $mail->Username   = 'username';                    
+        $mail->Password   = 'password';                             
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->SMTPAutoTLS = true;           
-        $mail->Port       = 587;
+        $mail->Port       = 587; // For encryption type TLS
 
         $mail->setFrom('contato@lojaphoneshop.com.br', 'L2 Ketra');    
         $mail->addAddress($email); 
