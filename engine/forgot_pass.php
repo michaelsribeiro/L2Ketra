@@ -58,7 +58,7 @@ function sendEmail($email, $key) {
         $mail->SMTPAutoTLS = true;           
         $mail->Port       = 587;
 
-        $mail->setFrom('contato@lojaphoneshop.com.br', 'L2Ketra');    
+        $mail->setFrom('contato@lojaphoneshop.com.br', 'L2 Ketra');    
         $mail->addAddress($email); 
 
         $mail->isHTML(true);                                
@@ -118,11 +118,6 @@ function sendEmail($email, $key) {
                                                 </td>
                                             <tr>
                                                 <td style='height:20px;'>&nbsp;</td>
-                                            </tr>
-                                            <tr>
-                                                <td style='text-align:center;'>
-                                                    <p style='font-size:14px; color:#333; line-height:18px; margin:0 0 0;'>&copy; <strong>L2 Ketra</strong></p>
-                                                </td>
                                             </tr>
                                             <tr>
                                                 <td style='height:80px;'>&nbsp;</td>
