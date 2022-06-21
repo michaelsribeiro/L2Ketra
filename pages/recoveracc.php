@@ -1,4 +1,10 @@
-<?php $key = $_GET['code'] ?>
+<?php 
+    $key = $_GET['code'];
+    if(isset($_SESSION['loggedin'])){
+        header('Location: ?pages=panel_changepass');
+        exit;
+    }
+?>
 <div class="account-manager">
     <h1>Recover Account</h1>   
     <form action="engine/recover.php" method="POST" class="registerForm">
