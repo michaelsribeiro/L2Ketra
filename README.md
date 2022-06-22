@@ -17,7 +17,7 @@
 
 This project was made with the objective of improving the base of the language PHP, <br/>
 allowing the user to register a new account and use that account within the game, <br/>
-log into the system, view the ranking of the best players, recover account and much more..<br/>
+log into the system, view the ranking of the best players, recover account and more..<br/>
 The design was cloned from [L2Ketra.com](https://l2ketra.com) and the credits go to Atualstudio.
 
 
